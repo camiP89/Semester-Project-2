@@ -1,0 +1,27 @@
+{
+  "name": "semester-project-2",
+  "version": "1.0.0",
+  "description": "A student-only online auction platform built with HTML, Tailwind CSS, and Vanilla JavaScript using the Noroff Auction API.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tailwindcss -i ./css/input.css -o ./css/style.css --watch",
+    "build": "tailwindcss -i ./css/input.css -o ./css/style.css --minify",
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/camiP89/Semester-Project-2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/camiP89/Semester-Project-2/issues"
+  },
+  "homepage": "https://github.com/camiP89/Semester-Project-2#readme",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.2.1",
+    "tailwindcss": "^4.2.1"
+  }
+}
