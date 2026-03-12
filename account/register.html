@@ -163,7 +163,104 @@
         </div>
       </div>
     </header>
-    <main></main>
+    <main
+      class="container mx-auto flex flex-col items-center justify-center px-4 py-12"
+    >
+      <h1
+        class="mb-8 text-center font-sans sm:text-xl md:text-2xl tracking-wide font-bold text-text"
+      >
+        Welcome to
+        <span class="text-primary sm:text-xl md:text-2xl font-extrabold"
+          >Student Auction House</span
+        >
+      </h1>
+      <div class="w-full max-w-md rounded-2xl bg-white p-8 shadow-lg">
+        <form id="form-container" class="space-y-5">
+          <div>
+            <label
+              class="mb-1 block text-sm font-semibold text-text/80"
+              for="email"
+              >Name</label
+            >
+            <input
+              class="mb-1 w-full rounded-lg border border-border/30 px-4 py-2 text-xs focus:ring-2 focus:ring-detail focus:outline-none"
+              type="text"
+              id="name"
+              placeholder="Enter name"
+              required
+            />
+          </div>
+          <div>
+            <label
+              class="mb-1 block text-sm font-semibold text-text/80"
+              for="email"
+              >Student Email</label
+            >
+            <div
+              class="flex items-center overflow-hidden rounded-lg border border-border/30 focus-within:ring-2 focus-within:ring-detail"
+            >
+              <input
+                class="w-full bg-transparent px-4 py-2 text-xs focus:outline-none"
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Username"
+                required
+              />
+              <span
+                class="bg-text/20 px-5 py-2 text-xs font-medium text-text border-l border-border/30 select-none"
+                >@stud.noroff.no</span
+              >
+            </div>
+          </div>
+          <div>
+            <label
+              class="mb-1 block text-sm font-semibold text-text/80"
+              for="password"
+              >Password</label
+            >
+            <input
+              class="w-full rounded-lg border border-border/30 px-4 py-2 text-xs focus:ring-2 focus:ring-detail focus:outline-none"
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Enter password"
+              required
+            />
+          </div>
+          <div>
+            <label
+              class="mb-1 block text-sm font-semibold text-text/80"
+              for="password"
+              >Avatar URL</label
+            >
+            <input
+              class="w-full rounded-lg border border-border/30 px-4 py-2 text-xs focus:ring-2 focus:ring-detail focus:outline-none"
+              type="url"
+              id="avatarUrl"
+              placeholder="Enter a public image URL"
+            />
+          </div>
+          <button
+            class="text-md w-full rounded-lg bg-coin py-2 font-semibold text-white bg-primary shadow-md transition hover:bg-detail hover:text-text focus:ring-2 focus:ring-detail focus:outline-detail active:bg-detail disabled:opacity-50"
+            type="submit"
+            name="action"
+            value="register"
+          >
+            Register
+          </button>
+        </form>
+        <p class="mt-6 text-center text-xs text-text/70">
+          Already have an account?
+          <a
+            href="/account/login.html"
+            class="font-bold text-detail hover:underline"
+            >Log in here</a
+          >
+        </p>
+      </div>
+    </main>
+
     <footer class="bg-white p-4 shadow-inner">
       <div class="container mx-auto space-y-4 text-center">
         <a href="/index.html">
