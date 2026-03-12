@@ -163,7 +163,151 @@
         </div>
       </div>
     </header>
-    <main></main>
+    <main>
+      <div
+        id="hero-banner"
+        class="w-full bg-primary/20 p-8 flex flex-col items-center justify-center space-y-4"
+      >
+        <div class="flex flex-col items-center font-sans">
+          <span class="text-center font-semibold text-text text-md"
+            >Welcome to the</span
+          >
+          <span class="text-center font-bold text-text text-xl"
+            >Student Auction House</span
+          >
+        </div>
+        <p class="max-w-xs text-center text-text text-sm font-medium italic">
+          "Bid, Sell, Succeed. Get 1000 credits when you join today."
+        </p>
+        <a
+          href="/account/register.html"
+          class="shadow-md block rounded-lg bg-primary w-40 px-3 py-2 font-sans text-center font-semibold text-white transition hover:bg-detail hover:text-text focus:ring-2 focus:ring-detail focus:outline-detail active:bg-detail disabled:opacity-50"
+          >Register</a
+        >
+        <p class="mt-4 text-center font-sans text-xs text-text/70">
+          Already have an account?
+          <a
+            href="/account/login.html"
+            class="font-bold text-detail font-sans hover:underline"
+            >Log in here</a
+          >
+        </p>
+      </div>
+
+      <div class="container mx-auto px-4 max-w-7xl">
+        <h1
+          class="font-heading mx-auto mb-3 rounded-lg p-2 text-center text-2xl font-bold text-primary md:text-2xl"
+        >
+          Loading...
+        </h1>
+        <div
+          class="mb-6 flex flex-row gap-4 md:flex-row md:items-center md:justify-between"
+        >
+          <!-- search bar -->
+          <div class="relative w-full md:w-1/2">
+            <input
+              type="text"
+              placeholder="Search Posts..."
+              class="w-full rounded-lg border-2 py-2 pr-4 pl-10 text-text/80 border-border/30 text-xs md:text-sm focus:ring-2 focus:ring-detail focus:outline-none"
+            />
+            <i
+              class="fa-solid fa-magnifying-glass absolute top-1/2 left-3 -translate-y-1/2 text-text/80"
+            ></i>
+          </div>
+
+          <!-- Sort -->
+          <select
+            class="rounded-lg border-2 border-border/30 text-xs md:text-sm text-text/80 bg-white px-4 py-2 text- focus:ring-2 focus:ring-detail focus:outline-none"
+          >
+            <option>Sort by Newest</option>
+            <option>Most Liked</option>
+            <option>Oldest</option>
+          </select>
+        </div>
+
+        <!-- Card template -->
+        <template id="listing-template">
+          <article
+            class="group relative overflow-hidden rounded-2xl border-2 border-border bg-white shadow-lg flex flex-col h-full"
+          >
+            <div class="relative h-60 w-full overflow-hidden">
+              <div
+                class="js-image h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+              ></div>
+              <div
+                class="absolute top-3 left-3 text-xs text-white bg-border/80 px-2 py-1 rounded-lg backdrop-blur-md"
+              >
+                <p class="js-bid-count">0 bids</p>
+              </div>
+              <div
+                class="absolute bottom-3 left-3 text-xs text-white bg-border/80 px-2 py-1 rounded-lg backdrop-blur-md"
+              >
+                <p class="js-ends-at">Ends: Mar 20,2026</p>
+              </div>
+            </div>
+            <div class="p-4 flex flex-col grow">
+              <h3
+                class="js-title font-heading text-md line-clamp-1 font-semibold text-text"
+              >
+                Listing Title
+              </h3>
+              <div class="flex flex-col gap-0.5 mt-2">
+                <div class="flex- items-center gap-1.5">
+                  <span class="text-sm font-medium text-text">By:</span>
+                  <span class="js-author text-xs font-light text-detail"
+                    >Author Name</span
+                  >
+                </div>
+                <div class="flex items-center gap-1.5">
+                  <span class="text-sm font-medium text-text">Created:</span>
+                  <span class="js-date text-sm font-light text-detail"
+                    >Feb 5, 2026</span
+                  >
+                </div>
+              </div>
+
+              <p
+                class="js-description mt-2 line-clamp-2 font-sans text-sm text-text grow"
+              >
+                Description of listing item goes here.
+              </p>
+              <div class="flex items-center gap-2 mt-3">
+                <span class="text-sm font-medium text-text">Highest Bid:</span>
+                <span class="js-highest-bid text-xs text-detail font-bold"
+                  >No bids yet</span
+                >
+              </div>
+              <div
+                class="js-tag-container flex flex-wrap gap-1 mt-3 min-h-24"
+              ></div>
+              <div class="mt-4 pt-2 border-t border-border">
+                <a
+                  href="/listings/listing-detail.html"
+                  class="js-link block rounded-full border-2 border-border bg-primary w-full py-2 text-center font-medium text-white hover:bg-detail focus:ring-2 focus:ring-detail transition-colors"
+                  >View Details</a
+                >
+              </div>
+            </div>
+          </article>
+        </template>
+
+        <div
+          id="listings-container"
+          class="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
+        ></div>
+
+        <div class="load-more-container">
+          <button
+            id="load-more-button"
+            class="button font-heading text-text text-md font-medium"
+            style="display: none"
+          >
+            Load More
+          </button>
+        </div>
+      </div>
+    </main>
+
     <footer class="bg-white p-4 shadow-inner">
       <div class="container mx-auto space-y-4 text-center">
         <a href="/index.html">
