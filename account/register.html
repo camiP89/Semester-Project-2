@@ -37,11 +37,132 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/css/style.css" />
-    <script src="/scripts/pages/register.mjs" type="module"></script>
+    <script src="/scripts/components/header.mjs" type="module"></script>
   </head>
 
   <body class="grid min-h-screen grid-rows-[auto_1fr_auto] bg-bg">
-    <header></header>
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+      <nav
+        class="container mx-auto px-4 py-2 flex items-center justify-between"
+      >
+        <a
+          href="/index.html"
+          class="w-28 hover:opacity-80 transition-opacity shrink-0"
+        >
+          <img src="/assets/studentauctionhouselogo.png" alt="Logo" />
+        </a>
+
+        <div id="user-status-bar" class="hidden items-center gap-1 md:gap-4">
+          <p
+            id="welcome-text"
+            class="text-xs font-medium italic text-primary"
+          ></p>
+          <div class="flex items-center gap-1">
+            <img src="/assets/sp2-coin.png" class="w-4 h-4" alt="credits" />
+            <span id="user-credits" class="text-xs font-bold text-primary"
+              >0</span
+            >
+          </div>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <div class="hidden md:flex space-x-6 items-center">
+            <a
+              href="/index.html"
+              class="font-medium hover:text-detail active:text-detail hover:underline hover:decoration-detail underline-offset-4 transition-all text-primary"
+              >Home</a
+            >
+            <a
+              href="/about/index.html"
+              class="font-medium hover:text-detail active:text-detail hover:underline hover:decoration-detail underline-offset-4 transition-all text-primary"
+              >About</a
+            >
+
+            <div id="logged-in-nav" class="hidden items-center space-x-6">
+              <a
+                href="/listings/index.html"
+                class="font-medium hover:text-detail active:text-detail hover:underline hover:decoration-detail underline-offset-4 transition-all text-primary"
+                >Listings</a
+              >
+              <a
+                href="/profile/index.html"
+                class="font-medium hover:text-detail active:text-detail hover:underline hover:decoration-detail underline-offset-4 transition-all text-primary"
+                >Profile</a
+              >
+              <button
+                id="logout-button"
+                class="bg-primary text-white px-6 py-1.5 rounded-full text-sm font-semibold"
+              >
+                Log Out
+              </button>
+            </div>
+
+            <div id="logged-out-nav" class="flex items-center">
+              <a
+                href="/account/login.html"
+                class="bg-primary text-white px-6 py-1.5 rounded-full text-sm font-semibold"
+                >Sign In</a
+              >
+            </div>
+          </div>
+
+          <button id="menu-btn" class="p-2 md:hidden block">
+            <i class="fa-solid fa-bars text-xl text-primary"></i>
+          </button>
+        </div>
+      </nav>
+
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden absolute top-full left-0 w-full bg-white shadow-lg py-8 z-50"
+      >
+        <div class="flex flex-col items-center font-sans gap-6">
+          <a
+            href="/index.html"
+            class="text-md font-semibold hover:text-detail active:text-detail hover:underline hover:decoration-detail underline-offset-4 transition-all text-primary"
+            >Home</a
+          >
+          <a
+            href="/about/index.html"
+            class="text-md font-semibold hover:text-detail active:text-detail hover:underline hover:decoration-detail underline-offset-4 transition-all text-primary"
+            >About</a
+          >
+
+          <div
+            id="mobile-logged-in-nav"
+            class="hidden flex-col items-center gap-6 w-full"
+          >
+            <a
+              href="/listings/index.html"
+              class="text-md font-semibold hover:text-detail active:text-detail hover:underline hover:decoration-detail underline-offset-4 transition-all text-primary"
+              >Listings</a
+            >
+            <a
+              href="/profile/index.html"
+              class="text-md font-semibold hover:text-detail active:text-detail hover:underline hover:decoration-detail underline-offset-4 transition-all text-primary"
+              >Profile</a
+            >
+            <button
+              id="mobile-logout-button"
+              class="bg-primary text-white px-8 py-2 rounded-full text-md"
+            >
+              Log Out
+            </button>
+          </div>
+
+          <div
+            id="mobile-logged-out-nav"
+            class="flex flex-col items-center gap-6 w-full"
+          >
+            <a
+              href="/account/login.html"
+              class="text-md bg-primary text-white px-8 py-2 rounded-full"
+              >Sign In</a
+            >
+          </div>
+        </div>
+      </div>
+    </header>
     <main></main>
     <footer class="bg-white p-4 shadow-inner">
       <div class="container mx-auto space-y-4 text-center">
