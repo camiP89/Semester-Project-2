@@ -36,6 +36,7 @@ export async function registerUser(name, email, password, avatarUrl) {
   return fetchData(REGISTER_ENDPOINT, {
     method: "POST",
     body: JSON.stringify(bodyData),
+    skipAuth: true,
   });
 }
 
