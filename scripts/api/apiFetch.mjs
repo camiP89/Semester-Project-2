@@ -18,14 +18,14 @@ export async function fetchData(url, options = {}) {
       ...options,
     });
 
+    const json = await response.json().catch(() => ({}));
     if (!response.ok) {
-      const json = await response.json().catch(() => ({}));
       throw new Error(
         json.errors?.[0]?.message || `Could not fetch data: ${response.status}`,
       );
     }
 
-    return await response.json.data;
+    return json.data;
   } catch (error) {
     console.error("Fetch error:", error.message);
     throw error;
