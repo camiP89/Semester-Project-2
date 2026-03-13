@@ -6,7 +6,6 @@ export function createListingsHtml(
   containerId = "listings-container",
   profileUserName = "",
 ) {
-  console.log("createListingsHtml called");
   const listingsContainer = document.getElementById(containerId);
 
   if (!listingsContainer) return;
@@ -15,13 +14,11 @@ export function createListingsHtml(
     listingsContainer.innerHTML = "<p>Could not load listings.</p>";
     return;
   }
-  console.log("Listings received:", listings);
 
   if (listings.length === 0) {
     listingsContainer.innerHTML = "<p>No listings available</p>";
     return;
   }
-  console.log("Total listings:", listings.length);
 
   listings.forEach((listing) => {
     try {
@@ -38,6 +35,4 @@ export function createListingsHtml(
       listingsContainer.appendChild(errorMsg);
     }
   });
-  console.log("All listings rendered");
 }
-

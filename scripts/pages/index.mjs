@@ -8,7 +8,6 @@ import {
 } from "../components/loadMoreListings.mjs";
 import { getFromLocalStorage } from "../utils/utils.mjs";
 
-console.log("Listings Feed Page Loaded");
 let allListings = [];
 let currentIndex = 0;
 const pageSize = 10;
