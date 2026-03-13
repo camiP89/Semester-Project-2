@@ -5,7 +5,10 @@ export async function fetchData(url, options = {}) {
   try {
     showSpinner();
 
-    const headers = { ...(options.headers || {}) };
+    const headers = {
+      "Content-Type": "application/json",
+      ...(options.headers || {}),
+    };
     if (!options.skipAuth) {
       Object.assign(headers, getAuthHeaders());
     }
@@ -22,13 +25,11 @@ export async function fetchData(url, options = {}) {
       );
     }
 
-    const json = await response.json();
-    return json.data;
+    return await response.json.data;
   } catch (error) {
     console.error("Fetch error:", error.message);
     throw error;
   } finally {
-   hideSpinner();
+    hideSpinner();
   }
 }
-
