@@ -37,7 +37,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/css/style.css" />
-    <script src="/scripts/components/header.mjs" type="module"></script>
+    <script src="/scripts/pages/index.mjs" type="module"></script>
   </head>
 
   <body class="grid min-h-screen grid-rows-[auto_1fr_auto] bg-body">
@@ -47,7 +47,7 @@
       >
         <a
           href="/index.html"
-          class="w-28 hover:opacity-80 transition-opacity shrink-0"
+          class="w-36 hover:opacity-80 transition-opacity shrink-0"
         >
           <img src="/assets/studentauctionhouselogo.png" alt="Logo" />
         </a>
@@ -107,7 +107,7 @@
           </div>
 
           <button id="menu-btn" class="p-2 md:hidden block">
-            <i class="fa-solid fa-bars text-xl text-primary"></i>
+            <i class="fa-solid fa-bars text-2xl text-primary"></i>
           </button>
         </div>
       </nav>
@@ -196,7 +196,7 @@
 
       <div class="container mx-auto px-4 max-w-7xl">
         <h1
-          class="font-heading mx-auto mb-3 rounded-lg p-2 text-center text-2xl font-bold text-primary md:text-2xl"
+          class="font-heading mx-auto mb-3 rounded-lg p-2 text-center text-2xl md:text-4xl my-4 font-bold text-primary"
         >
           Loading...
         </h1>
@@ -247,20 +247,20 @@
             </div>
             <div class="p-4 flex flex-col grow">
               <h3
-                class="js-title font-heading text-md line-clamp-1 font-semibold text-text"
+                class="js-title font-sans text-lg line-clamp-1 font-semibold text-text"
               >
                 Listing Title
               </h3>
               <div class="flex flex-col gap-0.5 mt-2">
                 <div class="flex- items-center gap-1.5">
                   <span class="text-sm font-medium text-text">By:</span>
-                  <span class="js-author text-xs font-light text-detail"
+                  <span class="js-author text-sm font-medium text-detail"
                     >Author Name</span
                   >
                 </div>
                 <div class="flex items-center gap-1.5">
                   <span class="text-sm font-medium text-text">Created:</span>
-                  <span class="js-date text-sm font-light text-detail"
+                  <span class="js-date text-sm font-medium text-detail"
                     >Feb 5, 2026</span
                   >
                 </div>
@@ -273,17 +273,17 @@
               </p>
               <div class="flex items-center gap-2 mt-3">
                 <span class="text-sm font-medium text-text">Highest Bid:</span>
-                <span class="js-highest-bid text-xs text-detail font-bold"
+                <span class="js-highest-bid text-md text-accent font-bold"
                   >No bids yet</span
                 >
               </div>
               <div
-                class="js-tag-container flex flex-wrap gap-1 mt-3 min-h-24"
+                class="js-tag-container flex flex-wrap gap-1 mt-2"
               ></div>
               <div class="mt-4 pt-2 border-t border-border">
                 <a
                   href="/listings/listing-detail.html"
-                  class="js-link block rounded-full border-2 border-border bg-primary w-full py-2 text-center font-medium text-white hover:bg-detail focus:ring-2 focus:ring-detail transition-colors"
+                  class="js-link block rounded-lg border-2 border-border bg-primary w-full py-2 text-center font-medium text-white hover:bg-detail focus:ring-2 focus:ring-detail transition-colors"
                   >View Details</a
                 >
               </div>
@@ -296,10 +296,10 @@
           class="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
         ></div>
 
-        <div class="load-more-container">
+        <div class="load-more-container flex justify-center">
           <button
             id="load-more-button"
-            class="button font-heading text-text text-md font-medium"
+            class="button font-heading text-text text-3xl font-bold my-5 md:text-4xl hover:text-detail active:text-detail hover:underline hover:decoration-detail underline-offset-4 transition-all"
             style="display: none"
           >
             Load More
