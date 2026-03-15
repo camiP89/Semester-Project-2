@@ -35,7 +35,7 @@ export function createSingleListingHtml(listing, profileUserName = null) {
   }
 
   const listingLink = clone.querySelector(".js-link");
-  listingLink.href = `/listings/listing.html?id=${listing.id}`;
+  listingLink.href = `/listings/listing-detail.html?id=${listing.id}`;
 
   const tagContainer = clone.querySelector(".js-tag-container");
 

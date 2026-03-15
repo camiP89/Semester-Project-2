@@ -55,7 +55,7 @@ export function updateListingById(listingId, listingData) {
 
 export function fetchListingsByProfile(userName) {
   return fetchData(
-    `${API_BASE_URL}/auction/profiles/${userName}/listings??_seller=true&_bids=true`,
+    `${API_BASE_URL}/auction/profiles/${userName}/listings?_seller=true&_bids=true`,
   );
 }
 

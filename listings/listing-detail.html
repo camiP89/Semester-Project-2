@@ -37,7 +37,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/css/style.css" />
-    <script src="/scripts/components/header.mjs" type="module"></script>
+    <script src="/scripts/pages/handleDetailPage.mjs" type="module"></script>
   </head>
 
   <body class="grid min-h-screen grid-rows-[auto_1fr_auto] bg-bg">
@@ -163,7 +163,87 @@
         </div>
       </div>
     </header>
-    <main></main>
+    <main>
+      <div class="container mx-auto px-4 max-w-7xl">
+        <!-- Card template single listing -->
+        <template id="listing-template">
+          <a
+            href="/listings/listing-detail.html"
+            class="js-link group relative my-4 overflow-hidden rounded-2xl bg-white shadow-lg flex flex-col h-full"
+          >
+            <article
+              class="group relative overflow-hidden rounded-2xl border-2 border-border bg-white shadow-lg grid lg:grid-cols-2 gap-6 p-4"
+            >
+              <div>
+                <h1
+                  class="js-title my-2 font-sans text-lg text-center font-bold text-text"
+                >
+                  Listing Title
+                </h1>
+              </div>
+              <div></div>
+              <div class="relative h-60 w-full lg:h-full overflow-hidden">
+                <div
+                  class="js-image h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                ></div>
+              </div>
+              <div class="p-4 flex flex-col grow">
+                <div class="flex flex-col gap-0.5 mt-2">
+                  <div class="flex- items-center gap-1.5">
+                    <span class="text-sm font-medium text-text">By:</span>
+                    <span class="js-author text-sm font-medium text-detail"
+                      >Author Name</span
+                    >
+                  </div>
+                  <div class="flex items-center gap-1.5">
+                    <span class="text-sm font-medium text-text">Created:</span>
+                    <span class="js-date text-sm font-medium text-detail"
+                      >Feb 5, 2026</span
+                    >
+                  </div>
+                  <div class="flex items-center gap-1.5">
+                    <span class="text-sm font-medium text-text">Ends:</span>
+                    <span class="js-ends-at text-sm font-medium text-detail"
+                      >Mar 20,2026</span
+                    >
+                  </div>
+                </div>
+
+                <p class="js-description my-2 font-sans text-sm text-text grow">
+                  Description of listing item goes here.
+                </p>
+                <div class="flex- items-center gap-1.5">
+                  <span class="text-sm font-medium text-text">Total Bids:</span>
+                  <span class="js-bid-count text-sm font-medium text-detail"
+                    >0 bids</span
+                  >
+                </div>
+                <div
+                  class="flex items-center bg-border/20 px-2 py-1 rounded-lg gap-2 mt-3"
+                >
+                  <span class="text-sm font-medium text-text"
+                    >Highest Bid:</span
+                  >
+                  <span class="js-highest-bid text-md text-accent font-bold"
+                    >No bids yet</span
+                  >
+                </div>
+                <div class="flex flex-col gap-2 mt-3">
+                  <span class="text-sm font-medium text-text">Bid History</span>
+                  <span
+                    class="js-bid-history-container text-md text-text font-bold"
+                    >No bids yet</span
+                  >
+                </div>
+                <div class="js-tag-container flex flex-wrap gap-1 mt-2"></div>
+              </div>
+            </article>
+          </a>
+        </template>
+
+        <div id="listings-container" class=""></div>
+      </div>
+    </main>
     <footer class="bg-white p-4 shadow-inner">
       <div class="container mx-auto space-y-4 text-center">
         <a href="/index.html">
