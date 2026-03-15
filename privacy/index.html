@@ -37,7 +37,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/css/style.css" />
-    <script src="/scripts/components/header.mjs" type="module"></script>
+    <script src="/scripts/pages/privacy.mjs" type="module"></script>
   </head>
 
   <body class="grid min-h-screen grid-rows-[auto_1fr_auto] bg-bg">
@@ -163,7 +163,67 @@
         </div>
       </div>
     </header>
-    <main></main>
+  <main class="container mx-auto px-4 py-12 max-w-3xl">
+
+  <div class="bg-white border border-border/30 rounded-2xl shadow-md p-8">
+
+    <h1 class="text-3xl md:text-4xl font-bold text-text mb-2">
+      Privacy Policy
+    </h1>
+
+    <p class="text-sm text-detail italic mb-8">
+      Last Updated: March 2026
+    </p>
+
+    <section class="space-y-8">
+
+      <div>
+        <h2 class="text-xl font-semibold text-text mb-2">
+          1. Educational Purpose
+        </h2>
+        <p class="text-text/80 leading-relaxed">
+          This website is a student project created for the Noroff Front-End Development program.
+          It uses a public API provided by Noroff for learning purposes only and is not intended
+          for commercial use.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-semibold text-text mb-2">
+          2. User Accounts
+        </h2>
+        <p class="text-text/80 leading-relaxed">
+          Users must register using a valid Noroff student email address. Passwords are not stored
+          by this website directly and are securely handled through the Noroff API authentication system.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-semibold text-text mb-2">
+          3. Local Storage
+        </h2>
+        <p class="text-text/80 leading-relaxed">
+          This website stores your <strong>accessToken</strong> in your browser's LocalStorage to
+          keep you logged in while browsing the auction listings. You may remove this information
+          at any time by logging out or clearing your browser storage.
+        </p>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="mt-8 text-center">
+    <a
+      href="../index.html"
+      class="inline-block text-accent font-semibold hover:underline hover:text-primary transition"
+    >
+      ← Back to Listings
+    </a>
+  </div>
+
+</main>
+
     <footer class="bg-white p-4 shadow-inner">
       <div class="container mx-auto space-y-4 text-center">
         <a href="/index.html">

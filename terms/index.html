@@ -37,7 +37,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/css/style.css" />
-    <script src="/scripts/components/header.mjs" type="module"></script>
+    <script src="/scripts/pages/terms.mjs" type="module"></script>
   </head>
 
   <body class="grid min-h-screen grid-rows-[auto_1fr_auto] bg-bg">
@@ -163,7 +163,83 @@
         </div>
       </div>
     </header>
-    <main></main>
+    <main class="container mx-auto px-4 py-12 max-w-3xl">
+      <div class="bg-white border border-border/30 rounded-2xl shadow-md p-8">
+        <h1 class="text-3xl md:text-4xl font-bold text-text mb-2">
+          Terms of Service
+        </h1>
+
+        <p class="text-sm text-detail italic mb-8">Last Updated: March 2026</p>
+
+        <section class="space-y-8">
+          <div>
+            <h2 class="text-xl font-semibold text-text mb-2">
+              1. Educational Project
+            </h2>
+            <p class="text-text/80 leading-relaxed">
+              Student Auction House is a student project developed as part of
+              the Noroff Front-End Development program. The website is created
+              for educational purposes and uses the Noroff Auction API to
+              simulate an online auction platform.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="text-xl font-semibold text-text mb-2">
+              2. User Accounts
+            </h2>
+            <p class="text-text/80 leading-relaxed">
+              To use the auction features, users must register with a valid
+              Noroff student email address. Users are responsible for
+              maintaining the confidentiality of their account information and
+              for all activity that occurs under their account.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="text-xl font-semibold text-text mb-2">
+              3. Auction Listings and Bidding
+            </h2>
+            <p class="text-text/80 leading-relaxed">
+              Users may create listings and place bids using virtual credits
+              provided by the Noroff API. All auctions and bids exist solely
+              within this educational environment and have no real-world value.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="text-xl font-semibold text-text mb-2">
+              4. Acceptable Use
+            </h2>
+            <p class="text-text/80 leading-relaxed">
+              Users agree not to misuse the platform, including posting harmful
+              content, attempting to exploit the API, or interfering with the
+              functionality of the website.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="text-xl font-semibold text-text mb-2">
+              5. Changes to the Service
+            </h2>
+            <p class="text-text/80 leading-relaxed">
+              Because this is a student project, features and functionality may
+              change at any time during development. The project may also be
+              removed or updated without notice.
+            </p>
+          </div>
+        </section>
+      </div>
+
+      <div class="mt-8 text-center">
+        <a
+          href="../index.html"
+          class="inline-block text-accent font-semibold hover:underline hover:text-primary transition"
+        >
+          ← Back to Listings
+        </a>
+      </div>
+    </main>
     <footer class="bg-white p-4 shadow-inner">
       <div class="container mx-auto space-y-4 text-center">
         <a href="/index.html">
