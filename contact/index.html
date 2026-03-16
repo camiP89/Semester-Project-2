@@ -37,7 +37,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/css/style.css" />
-    <script src="/scripts/components/header.mjs" type="module"></script>
+    <script src="/scripts/pages/contact.mjs" type="module"></script>
   </head>
 
   <body class="grid min-h-screen grid-rows-[auto_1fr_auto] bg-bg">
@@ -167,7 +167,145 @@
         </div>
       </div>
     </header>
-    <main></main>
+    <main
+      class="container mx-auto flex flex-col items-center justify-center px-4 py-12"
+    >
+      <h1
+        class="mb-8 text-center font-sans sm:text-xl md:text-2xl tracking-wide font-bold text-text"
+      >
+        Contact
+        <span class="text-primary sm:text-xl md:text-2xl font-extrabold"
+          >Student Auction House</span
+        >
+      </h1>
+
+      <div
+        class="w-full max-w-xl rounded-2xl bg-white p-8 shadow-lg ring-1 ring-gray-100"
+      >
+        <form id="contact-form" action="#" class="space-y-5">
+          <div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
+            <div>
+              <label
+                class="mb-1 block text-sm font-semibold text-text/80"
+                for="first-name"
+                >First Name</label
+              >
+              <input
+                class="w-full rounded-lg border border-border/30 px-4 py-2 text-xs focus:ring-2 focus:ring-detail focus:outline-none transition"
+                type="text"
+                id="first-name"
+                name="first-name"
+                placeholder="Enter first name"
+                required
+              />
+            </div>
+            <div>
+              <label
+                class="mb-1 block text-sm font-semibold text-text/80"
+                for="last-name"
+                >Last Name</label
+              >
+              <input
+                class="w-full rounded-lg border border-border/30 px-4 py-2 text-xs focus:ring-2 focus:ring-detail focus:outline-none transition"
+                type="text"
+                id="last-name"
+                name="last-name"
+                placeholder="Enter last name"
+                required
+              />
+            </div>
+          </div>
+
+          <div>
+            <label
+              class="mb-1 block text-sm font-semibold text-text/80"
+              for="email"
+              >Email Address</label
+            >
+            <input
+              class="w-full rounded-lg border border-border/30 px-4 py-2 text-xs focus:ring-2 focus:ring-detail focus:outline-none transition"
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Enter Email"
+              required
+            />
+          </div>
+
+          <div>
+            <label
+              class="mb-1 block text-sm font-semibold text-text/80"
+              for="message"
+              >Message</label
+            >
+            <textarea
+              class="w-full rounded-lg border border-border/30 px-4 py-2 text-xs focus:ring-2 focus:ring-detail focus:outline-none transition"
+              id="message"
+              name="message"
+              rows="4"
+              placeholder="Enter message here"
+              required
+            ></textarea>
+          </div>
+
+          <div class="flex items-start gap-x-3">
+            <input
+              id="agree-to-policies"
+              type="checkbox"
+              required
+              class="h-4 w-4 mt-0.5 rounded border-gray-300 text-primary focus:ring-detail"
+            />
+            <label for="agree-to-policies" class="text-xs text-text/70">
+              I agree to the
+              <a
+                href="/privacy/index.html"
+                class="font-bold text-detail hover:underline"
+                >privacy policy</a
+              >.
+            </label>
+          </div>
+
+          <button
+            class="text-md w-full rounded-lg bg-primary py-2.5 font-semibold text-white shadow-md transition hover:bg-detail hover:text-text focus:ring-2 focus:ring-detail focus:outline-none active:scale-[0.98]"
+            type="submit"
+          >
+            Send Message
+          </button>
+        </form>
+
+        <div
+          id="success-message"
+          class="hidden text-center py-6 animate-fade-in"
+        >
+          <div
+            class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100 mb-4"
+          >
+            <svg
+              class="h-6 w-6 text-green-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"
+              ></path>
+            </svg>
+          </div>
+          <h2 class="text-xl font-bold text-text mb-2">Message Sent!</h2>
+          <p id="success-text" class="text-xs text-text/70 mb-6">
+            We'll get back to you soon.
+          </p>
+          <a
+            href="../index.html"
+            class="text-xs font-bold text-detail hover:underline"
+            >Return to Home</a
+          >
+        </div>
+      </div>
+    </main>
     <footer class="bg-white p-4 shadow-inner">
       <div class="container mx-auto space-y-4 text-center">
         <a href="/index.html">
