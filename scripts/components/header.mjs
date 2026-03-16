@@ -8,28 +8,37 @@ export function createHeader() {
   const loggedInContainers = [
     document.getElementById("logged-in-nav"),
     document.getElementById("mobile-logged-in-nav"),
-    document.getElementById("user-status-bar")
+    document.getElementById("user-status-bar"),
   ];
 
   const loggedOutContainers = [
     document.getElementById("logged-out-nav"),
-    document.getElementById("mobile-logged-out-nav")
+    document.getElementById("mobile-logged-out-nav"),
   ];
 
   if (token && userName) {
-    loggedInContainers.forEach(el => {
-        el?.classList.remove("hidden");
-        if(el?.id === "user-status-bar") el?.classList.add("flex");
+    loggedInContainers.forEach((el) => {
+      if (!el) return;
+
+      el.classList.remove("hidden");
+
+      if (el.id === "user-status-bar") {
+        el.classList.add("flex");
+      }
+
+      if (el.id === "mobile-logged-in-nav") {
+        el.classList.add("flex", "flex-col");
+      }
     });
-    loggedOutContainers.forEach(el => el?.classList.add("hidden"));
+    loggedOutContainers.forEach((el) => el?.classList.add("hidden"));
 
     const welcomeText = document.getElementById("welcome-text");
     const userCredits = document.getElementById("user-credits");
     if (welcomeText) welcomeText.textContent = `Welcome, ${userName}!`;
     if (userCredits) userCredits.textContent = Number(credits).toLocaleString();
   } else {
-    loggedInContainers.forEach(el => el?.classList.add("hidden"));
-    loggedOutContainers.forEach(el => el?.classList.remove("hidden"));
+    loggedInContainers.forEach((el) => el?.classList.add("hidden"));
+    loggedOutContainers.forEach((el) => el?.classList.remove("hidden"));
   }
 
   const menuBtn = document.getElementById("menu-btn");
@@ -47,6 +56,10 @@ export function createHeader() {
     window.location.href = "/index.html";
   };
 
-  document.getElementById("logout-button")?.addEventListener("click", handleLogout);
-  document.getElementById("mobile-logout-button")?.addEventListener("click", handleLogout);
+  document
+    .getElementById("logout-button")
+    ?.addEventListener("click", handleLogout);
+  document
+    .getElementById("mobile-logout-button")
+    ?.addEventListener("click", handleLogout);
 }
