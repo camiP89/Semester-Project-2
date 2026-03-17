@@ -37,7 +37,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/css/style.css" />
-    <script src="/scripts/components/header.mjs" type="module"></script>
+    <script src="/scripts/pages/about.mjs" type="module"></script>
   </head>
 
   <body class="grid min-h-screen grid-rows-[auto_1fr_auto] bg-bg">
@@ -168,7 +168,53 @@
       </div>
     </header>
 
-    <main></main>
+    <main class="container mx-auto px-4 py-12 max-w-3xl">
+      <div class="bg-white border border-border/30 rounded-2xl shadow-md p-8">
+        <h1
+          class="mb-8 text-center font-sans sm:text-xl md:text-2xl tracking-wide font-bold text-text"
+        >
+          About
+        </h1>
+
+        <article class="space-y-8">
+          <div>
+            <p class="text-text/80 leading-relaxed">
+              Student Auction House is a specialized marketplace designed
+              specifically for the student community. Our platform allows
+              students to buy and sell items through an easy-to-use bidding
+              system.
+            </p>
+          </div>
+
+          <div>
+            <p class="text-text/80 leading-relaxed">
+              Whether you are looking for affordable textbooks, creative gear,
+              or household items for your dorm, our mission is to make student
+              life more affordable and sustainable through peer-to-peer trading.
+            </p>
+          </div>
+
+          <div>
+            <p class="text-text/80 leading-relaxed">
+              This site was developed as a Semester Project at Noroff. It
+              demonstrates a full front-end implementation including user
+              authentication, auction listings, and a credit-based bidding
+              system using a REST API.
+            </p>
+          </div>
+        </article>
+      </div>
+
+      <div class="mt-8 text-center">
+        <a
+          href="../index.html"
+          class="inline-block text-accent font-semibold hover:underline hover:text-primary transition"
+        >
+          ← Back to Listings
+        </a>
+      </div>
+    </main>
+
     <footer class="bg-white p-4 shadow-inner">
       <div class="container mx-auto space-y-4 text-center">
         <a href="/index.html">
