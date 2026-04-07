@@ -3,41 +3,22 @@ import {
   API_BASE_URL,
   getSingleListing,
 } from "../constants/constants.mjs";
+
 import { fetchData } from "../api/apiFetch.mjs";
 import { getAuthHeaders } from "../api/authApi.mjs";
 
 export async function fetchAllListings() {
-  return fetchData(`${ALL_LISTINGS_ENDPOINT}?_seller=true&_bids=true`);
+  return fetchData(
+    `${ALL_LISTINGS_ENDPOINT}?_seller=true&_bids=true&_active=true&_tags=true`,
+  );
 }
 
 export function fetchSingleListingById(listingId) {
   return fetchData(`${getSingleListing(listingId)}?_seller=true&_bids=true`);
 }
 
-/**
- * Create a new listing
- * @param {string} title
- * @param {string} body
- * @param {Array<string>} tags
- * @param {string} Optional image URL
- * @param {string} Optional image Alt text
- * @returns { Promise<Object}
- */
-export function createListing(
-  title,
-  description,
-  tags = [],
-  mediaUrl,
-  mediaAlt,
-) {
+export function createListing(listingData) {
   const url = `${API_BASE_URL}/auction/listings`;
-
-  const listingData = {
-    title,
-    description,
-    tags,
-    ...(mediaUrl ? { media: [{ url: mediaUrl, alt: mediaAlt || "" }] } : {}),
-  };
 
   return fetchData(url, {
     method: "POST",
@@ -49,6 +30,7 @@ export function createListing(
 export function updateListingById(listingId, listingData) {
   return fetchData(`${API_BASE_URL}/auction/listings/${listingId}`, {
     method: "PUT",
+    headers: getAuthHeaders(),
     body: JSON.stringify(listingData),
   });
 }
@@ -70,6 +52,7 @@ export async function deleteListing(listingId) {
 
   if (!response.ok) {
     const errorData = await response.json();
+
     throw new Error(
       errorData.errors?.[0]?.message || "Failed to delete listing.",
     );

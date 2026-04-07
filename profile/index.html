@@ -37,7 +37,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/css/style.css" />
-    <script src="/scripts/components/header.mjs" type="module"></script>
+    <script src="/scripts/pages/profilePage.mjs" type="module"></script>
   </head>
 
   <body class="grid min-h-screen grid-rows-[auto_1fr_auto] bg-bg">
@@ -167,7 +167,173 @@
         </div>
       </div>
     </header>
-    <main></main>
+    <main class="container mx-auto px-4 max-w-7xl">
+      <section
+        id="profile-info"
+        class="my-8 p-6 bg-white rounded-2xl shadow-lg border-2 border-border"
+      >
+        <div class="flex flex-col md:flex-row items-center gap-6">
+          <img
+            id="profile-avatar"
+            src="/assets/hat-icon.png"
+            class="w-32 h-32 rounded-full object-cover border-4 border-primary"
+            alt="Profile Picture"
+          />
+          <div class="text-center md:text-left grow">
+            <h1 id="profile-name" class="text-2xl font-bold text-text">
+              Loading...
+            </h1>
+            <p id="profile-bio" class="text-text/70 mt-2">Bio goes here...</p>
+            <div class="flex gap-4 mt-4 justify-center md:justify-start">
+              <span
+                id="credits-count"
+                class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-bold"
+                >Credits: 0</span
+              >
+              <span
+                id="wins-count"
+                class="bg-accent/10 text-accent px-3 py-1 rounded-full text-sm font-bold"
+                >Wins: 0</span
+              >
+            </div>
+          </div>
+          <div class="flex flex-col gap-2">
+            <div
+              id="edit-profile-section"
+              class="hidden my-6 p-4 bg-gray-50 rounded-xl border-2 border-dashed border-detail/30"
+            >
+              <form id="update-profile-form" class="flex flex-col gap-4">
+                <div>
+                  <label class="block text-sm font-bold mb-1"
+                    >New Avatar URL</label
+                  >
+                  <input
+                    type="url"
+                    name="avatarUrl"
+                    class="w-full p-2 rounded border border-border"
+                  />
+                </div>
+                <div>
+                  <label class="block text-sm font-bold mb-1">Bio</label>
+                  <textarea
+                    name="bio"
+                    class="w-full p-2 rounded border border-border"
+                    rows="3"
+                  ></textarea>
+                </div>
+                <div class="flex gap-2">
+                  <button
+                    type="submit"
+                    class="bg-primary text-white px-4 py-2 rounded"
+                  >
+                    Save Changes
+                  </button>
+                  <button
+                    type="button"
+                    id="close-edit"
+                    class="bg-gray-300 px-4 py-2 rounded"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </form>
+            </div>
+            <button
+              id="edit-profile-btn"
+              class="bg-detail/10 text-detail px-4 py-2 rounded-lg font-bold hover:bg-detail/20"
+            >
+              Edit Profile
+            </button>
+            <a
+              href="/listings/create.html"
+              class="bg-primary text-white px-4 py-2 rounded-lg text-center"
+              >Create Listing</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <h2 class="text-xl font-bold mb-4">My Listings</h2>
+      <template id="listing-card-template">
+        <article
+          class="group relative overflow-hidden rounded-2xl border-2 border-border bg-white shadow-lg flex flex-col h-full"
+        >
+          <div class="relative h-60 w-full overflow-hidden">
+            <div
+              class="js-image h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+            ></div>
+            <div
+              class="absolute top-3 left-3 text-xs text-white bg-border/80 px-2 py-1 rounded-lg backdrop-blur-md"
+            >
+              <p class="js-bid-count">0 bids</p>
+            </div>
+            <div
+              class="absolute bottom-3 left-3 text-xs text-white bg-border/80 px-2 py-1 rounded-lg backdrop-blur-md"
+            >
+              <p class="js-ends-at">Ends: Mar 20,2026</p>
+            </div>
+          </div>
+          <div class="p-4 flex flex-col grow">
+            <h3
+              class="js-title font-sans text-lg line-clamp-1 font-semibold text-text"
+            >
+              Listing Title
+            </h3>
+            <div class="flex flex-col gap-0.5 mt-2">
+              <div class="flex- items-center gap-1.5">
+                <span class="text-sm font-medium text-text">By:</span>
+                <span class="js-author text-sm font-medium text-detail"
+                  >Author Name</span
+                >
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-sm font-medium text-text">Created:</span>
+                <span class="js-date text-sm font-medium text-detail"
+                  >Feb 5, 2026</span
+                >
+              </div>
+            </div>
+
+            <p
+              class="js-description mt-2 line-clamp-2 font-sans text-sm text-text grow"
+            >
+              Description of listing item goes here.
+            </p>
+            <div class="flex items-center gap-2 mt-3">
+              <span class="text-sm font-medium text-text">Highest Bid:</span>
+              <span class="js-highest-bid text-md text-accent font-bold"
+                >No bids yet</span
+              >
+            </div>
+            <div class="js-tag-container flex flex-wrap gap-1 mt-2"></div>
+            <div class="js-owner-controls hidden gap-2 mt-2">
+              <button
+                class="js-edit-btn bg-detail text-white px-3 py-1 rounded text-xs font-semibold flex-1"
+              >
+                Edit
+              </button>
+              <button
+                class="js-delete-btn bg-red-500 text-white px-3 py-1 rounded text-xs font-semibold flex-1"
+              >
+                Delete
+              </button>
+            </div>
+            <div class="mt-4 pt-2 border-t border-border">
+              <a
+                href="/listings/listing-detail.html"
+                class="js-link block rounded-lg border-2 border-border bg-primary w-full py-2 text-center font-medium text-white hover:bg-detail focus:ring-2 focus:ring-detail transition-colors"
+                >View Details</a
+              >
+            </div>
+          </div>
+        </article>
+      </template>
+
+      <div
+        id="listings-container"
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12"
+      ></div>
+    </main>
     <footer class="bg-white p-4 shadow-inner">
       <div class="container mx-auto space-y-4 text-center">
         <a href="/index.html">

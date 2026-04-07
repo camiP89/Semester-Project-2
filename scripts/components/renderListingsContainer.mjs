@@ -5,6 +5,7 @@ import {
   toggleLoadMore,
   setupLoadMoreButton,
 } from "./loadMoreListings.mjs";
+import { sortListings, setupSortDropdown } from "./sortListings.mjs";
 
 /**
  * Renders the listings feed with a heading and pagination.
@@ -13,6 +14,7 @@ import {
  */
 export async function renderListingsContainer(headingText, pageSize = 10) {
   let allListings = [];
+  let sortedListings = [];
   let currentIndex = 0;
 
   const heading = document.querySelector("h1");
@@ -23,13 +25,28 @@ export async function renderListingsContainer(headingText, pageSize = 10) {
   try {
     allListings = await fetchAllListings();
 
-    currentIndex = loadMoreListings(allListings, currentIndex, pageSize);
-    toggleLoadMore("load-more-button", currentIndex, allListings.length);
+    sortedListings = [...allListings];
+
+    currentIndex = loadMoreListings(sortedListings, currentIndex, pageSize);
+    toggleLoadMore("load-more-button", currentIndex, sortedListings.length);
 
     setupLoadMoreButton("load-more-button", () => {
-      currentIndex = loadMoreListings(allListings, currentIndex, pageSize);
-      toggleLoadMore("load-more-button", currentIndex, allListings.length);
+      currentIndex = loadMoreListings(sortedListings, currentIndex, pageSize);
+      toggleLoadMore("load-more-button", currentIndex, sortedListings.length);
     });
+
+    setupSortDropdown("sort-dropdown", (sortType) => {
+      currentIndex = 0;
+
+      sortedListings = sortListings(allListings, sortType);
+
+      document.getElementById("listings-container").innerHTML = "";
+
+      currentIndex = loadMoreListings(sortedListings, currentIndex, pageSize);
+
+      toggleLoadMore("load-more-button", currentIndex, sortedListings.length);
+    });
+
   } catch (error) {
     const listingContainer = document.getElementById("listings-container");
     if (listingContainer) {
