@@ -37,7 +37,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/css/style.css" />
-    <script src="/scripts/components/header.mjs" type="module"></script>
+    <script src="/scripts/pages/editListing.mjs" type="module"></script>
   </head>
 
   <body class="grid min-h-screen grid-rows-[auto_1fr_auto] bg-bg">
@@ -167,7 +167,120 @@
         </div>
       </div>
     </header>
-    <main></main>
+    <main
+      class="container mx-auto flex flex-col items-center justify-center px-4 py-12"
+    >
+      <h1
+        class="mb-8 text-center font-sans sm:text-xl md:text-3xl tracking-wide font-bold text-text"
+      >
+        Edit Listing
+      </h1>
+      <div class="w-full max-w-md rounded-2xl bg-white p-8 shadow-lg">
+        <form id="create-listing-container" class="space-y-5">
+          <div>
+            <label
+              class="mb-1 block text-sm font-sans font-semibold text-text/80"
+              >Listing Title</label
+            >
+            <input
+              class="mb-1 w-full font-sans text-xs text-text rounded-lg border border-border/30 px-4 py-2 focus:ring-2 focus:ring-detail focus:outline-none"
+              type="text"
+              id="listing-title"
+              placeholder="Enter listing title"
+              required
+            />
+          </div>
+
+          <div>
+            <label class="mb-1 block text-sm font-semibold text-text/80"
+              >Listing Description</label
+            >
+            <input
+              class="mb-1 w-full font-sans text-xs text-text rounded-lg border border-border/30 px-4 py-2 focus:ring-2 focus:ring-detail focus:outline-none"
+              type="text"
+              id="listing-description"
+              placeholder="Enter listing description"
+              required
+            />
+          </div>
+
+          <div>
+            <label class="mb-1 block text-sm font-semibold text-text/80"
+              >Image URL</label
+            >
+            <input
+              class="mb-1 w-full rounded-lg font-sans text-xs text-text border border-border/30 px-4 py-2 focus:ring-2 focus:ring-detail focus:outline-none"
+              type="text"
+              id="image-url"
+              placeholder="Enter Image URL"
+            />
+            <img
+              id="image-preview"
+              class="hidden mt-2 w-full rounded-lg border border-border/30"
+              alt="Image preview"
+            />
+          </div>
+
+          <div>
+            <label class="mb-1 block text-sm font-semibold text-text/80"
+              >Image Alt Text</label
+            >
+            <input
+              class="w-full rounded-lg font-sans text-xs text-text border border-border/30 px-4 py-2 focus:ring-2 focus:ring-detail focus:outline-none"
+              type="text"
+              id="image-alt-text"
+              placeholder="Enter a description of image"
+            />
+          </div>
+          <div>
+            <label class="mb-1 block text-sm font-semibold text-text/80"
+              >Tags (separated by commas)</label
+            >
+            <input
+              class="w-full rounded-lg border font-sans text-xs text-text text-text/90 border-border/30 px-4 py-2 focus:ring-2 focus:ring-detail focus:outline-none"
+              type="text"
+              id="listing-tags"
+              placeholder="Enter tags"
+              required
+            />
+          </div>
+          <div class="flex flex-col gap-4">
+            <div>
+              <label
+                for="datetime"
+                class="mb-1 block text-sm font-semibold text-text/80"
+                >Select End Date and Time</label
+              >
+              <div class="mt-1">
+                <input
+                  type="datetime-local"
+                  id="end-datetime"
+                  name="datetime"
+                  class="w-full rounded-lg font-sans text-xs text-text/80 border border-border/30 px-4 py-2 focus:ring-2 focus:ring-detail focus:outline-none"
+                />
+              </div>
+            </div>
+          </div>
+          <button
+            class="text-md w-full rounded-lg py-2 font-semibold text-white bg-primary shadow-md transition hover:bg-detail hover:text-text focus:ring-2 focus:ring-detail focus:outline-detail active:bg-detail disabled:opacity-50"
+            type="submit"
+            name="action"
+            value="Update"
+          >
+            Update
+          </button>
+          <button
+            class="text-md w-full rounded-lg py-2 font-bold bg-primary/30 text-text shadow-md transition hover:text-white active:bg-red-500 px-4 hover:bg-red-500"
+            type="button"
+            onclick="window.location.href = '../listings/index.html'"
+            name="action"
+            value="Cancel"
+          >
+            Cancel
+          </button>
+        </form>
+      </div>
+    </main>
     <footer class="bg-white p-4 shadow-inner">
       <div class="container mx-auto space-y-4 text-center">
         <a href="/index.html">
