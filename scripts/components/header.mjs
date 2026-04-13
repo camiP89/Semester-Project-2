@@ -1,10 +1,21 @@
+import { API_BASE_URL } from "../constants/constants.mjs";
 import { getFromLocalStorage } from "../utils/utils.mjs";
+import { getSingleProfile } from "../constants/constants.mjs";
+import { fetchData } from "../api/apiFetch.mjs";
 
-export function createHeader() {
+export async function createHeader() {
   const token = getFromLocalStorage("accessToken");
   const userName = getFromLocalStorage("userName");
-  const credits = getFromLocalStorage("credits") || 0;
 
+  if (!token || !userName) return;
+
+  const profile = await fetchData(
+    `${getSingleProfile(userName)}?_credits=true`,
+  );
+
+  const credits = profile.data?.credits ?? profile.credits;
+
+  console.log("TOKEN:", token);
   const loggedInContainers = [
     document.getElementById("logged-in-nav"),
     document.getElementById("mobile-logged-in-nav"),

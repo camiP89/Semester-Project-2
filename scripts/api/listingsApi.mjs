@@ -60,3 +60,11 @@ export async function deleteListing(listingId) {
 
   return true;
 }
+
+export function placeBid(listingId, amount) {
+  return fetchData(`${API_BASE_URL}/auction/listings/${listingId}/bids`, {
+    method: "POST",
+    headers: getAuthHeaders(),
+    body: JSON.stringify({ amount }),
+  });
+}

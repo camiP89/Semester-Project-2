@@ -2,8 +2,8 @@ import { API_BASE_URL } from "../constants/constants.mjs";
 import { createListingDetailsHtml } from "../components/listingDetailsHtml.mjs";
 import { showSpinner, hideSpinner } from "../components/loadingSpinner.mjs";
 import { createHeader } from "../components/header.mjs";
-import { getAuthHeaders } from "../api/authApi.mjs";
 import { fetchData } from "../api/apiFetch.mjs";
+import { placeBid } from "../api/listingsApi.mjs";
 
 createHeader();
 
@@ -34,9 +34,7 @@ export async function mainId() {
   showSpinner();
 
   try {
-    const data = await fetchData(url);
-    console.log("Full API Response:", data);
-    const listingData = data;
+    const listingData = await fetchData(url);
 
     if (!listingData) throw new Error("Listing data is empty.");
 
@@ -44,6 +42,8 @@ export async function mainId() {
 
     listingDetailsContainer.innerHTML = "";
     listingDetailsContainer.appendChild(singleListingHtml);
+
+    setupBidForm(listingData);
 
     document.title = `${listingData.title} | Student Auction House`;
   } catch (error) {
@@ -56,3 +56,65 @@ export async function mainId() {
 }
 
 mainId();
+
+function setupBidForm(listingData) {
+  const form = document.querySelector("#bid-form");
+  const input = document.querySelector("#bid-amount");
+  const message = document.querySelector("#bid-message");
+
+  if (!form) return;
+
+  const token = localStorage.getItem("accessToken");
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  const isOwner = user?.name === listingData.seller?.name;
+
+  if (!token || isOwner) {
+    form.style.display = "none";
+    return;
+  }
+
+  const highestBid =
+    listingData.bids?.length > 0
+      ? Math.max(...listingData.bids.map((b) => b.amount))
+      : 0;
+
+  const button = form.querySelector("button");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const amount = Number(input.value);
+
+    if (!amount || amount <= 0) {
+      message.textContent = "Please enter a valid bid amount.";
+      return;
+    }
+
+    if (amount <= highestBid) {
+      message.textContent = "Bid must be higher than current highest bid.";
+      return;
+    }
+
+    button.disabled = true;
+
+    try {
+      await placeBid(listingData.id, amount);
+
+      message.textContent = "✅ Bid placed successfully!";
+
+      const creditsEl = document.querySelector("#user-credits");
+      if (creditsEl) {
+        const currentCredits = Number(creditsEl.textContent);
+        creditsEl.textContent = (currentCredits - amount).toLocaleString();
+      }
+
+      mainId();
+    } catch (error) {
+      console.error(error);
+      message.textContent = "❌ Failed to place bid.";
+    } finally {
+      button.disabled = false;
+    }
+  });
+}
