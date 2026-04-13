@@ -103,13 +103,18 @@ function setupBidForm(listingData) {
 
       message.textContent = "✅ Bid placed successfully!";
 
-      const creditsEl = document.querySelector("#user-credits");
-      if (creditsEl) {
-        const currentCredits = Number(creditsEl.textContent);
-        creditsEl.textContent = (currentCredits - amount).toLocaleString();
-      }
+      setTimeout(() => {
+        const creditsEl = document.querySelector("#user-credits");
 
-      mainId();
+        if (creditsEl) {
+          creditsEl.textContent = (
+            Number(creditsEl.textContent) - amount
+          ).toLocaleString();
+        }
+
+        message.textContent = "";
+      }, 2000);
+
     } catch (error) {
       console.error(error);
       message.textContent = "❌ Failed to place bid.";
