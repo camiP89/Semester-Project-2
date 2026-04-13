@@ -1,4 +1,5 @@
 import { placeBid } from "../api/listingsApi.mjs";
+import { createHeader } from "../components/header.mjs";
 
 export function setupBidForm(listingData, refreshListing) {
   const form = document.querySelector("#bid-form");
@@ -33,14 +34,18 @@ export function setupBidForm(listingData, refreshListing) {
       message.textContent = "Bid must be higher than current highest bid.";
       return;
     }
+
+    button.disabled = true;
+
     try {
       await placeBid(listingData.id, amount);
 
       message.textContent = "✅ Bid placed successfully!";
 
-      setTimeout(() => {
+      setTimeout(async () => {
         message.textContent = "";
-        refreshListing();
+        await refreshListing();
+        await createHeader();
       }, 1200);
     } catch (error) {
       console.error(error);
