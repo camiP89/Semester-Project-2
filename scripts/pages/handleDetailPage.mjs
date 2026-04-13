@@ -103,7 +103,7 @@ function setupBidForm(listingData) {
 
       message.textContent = "✅ Bid placed successfully!";
 
-      setTimeout(() => {
+      setTimeout(async () => {
         const creditsEl = document.querySelector("#user-credits");
 
         if (creditsEl) {
@@ -113,7 +113,10 @@ function setupBidForm(listingData) {
         }
 
         message.textContent = "";
+
+        await mainId();
       }, 2000);
+
 
     } catch (error) {
       console.error(error);
