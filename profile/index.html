@@ -333,6 +333,49 @@
         id="listings-container"
         class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12"
       ></div>
+
+      <template id="bid-card-template">
+        <article
+          class="group relative overflow-hidden rounded-2xl border-2 border-border bg-white shadow-lg flex flex-col"
+        >
+          <div class="h-40 w-full bg-cover bg-center js-image"></div>
+
+          <div class="p-4 flex flex-col gap-2 h-full">
+            <h3 class="js-title font-bold text-lg">Listing title</h3>
+
+            <p class="text-sm">
+              Your bid:
+              <span class="js-bid-amount font-bold text-accent"></span>
+            </p>
+
+            <div class="flex items-center gap-1.5">
+              <span class="text-sm font-medium text-text">Created:</span>
+              <span class="js-date text-sm font-medium text-detail"
+                >Feb 5, 2026</span
+              >
+            </div>
+
+            <div class="flex items-center gap-1.5">
+              <span class="text-sm font-medium text-text">Ends:</span>
+              <span class="js-ends-at text-sm font-medium text-red-500"
+                >Mar 20,2026</span
+              >
+            </div>
+
+            <a
+              class="js-link mt-auto bg-primary text-white text-center py-2 rounded"
+            >
+              View Listing
+            </a>
+          </div>
+        </article>
+      </template>
+
+      <h2 class="text-xl font-bold mb-4">My Bids</h2>
+      <div
+        id="my-bids-container"
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12"
+      ></div>
     </main>
     <footer class="bg-white p-4 shadow-inner">
       <div class="container mx-auto space-y-4 text-center">

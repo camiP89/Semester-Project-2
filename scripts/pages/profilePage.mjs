@@ -2,11 +2,15 @@ import { fetchProfile, updateProfile } from "../api/profileApi.mjs";
 import { createSingleListingHtml } from "../components/createSingleListing.mjs";
 import { showSpinner, hideSpinner } from "../components/loadingSpinner.mjs";
 import { createHeader } from "../components/header.mjs";
+import { fetchBidsByProfile } from "../api/profileApi.mjs";
+import { createSingleBidHtml } from "../components/createSingleBid.mjs";
 
 createHeader();
 
 export async function initProfile() {
   const container = document.getElementById("listings-container");
+  const bidsContainer = document.getElementById("my-bids-container");
+
   const rawUser = localStorage.getItem("userName") || "";
   const username = rawUser.replace(/"/g, "").trim();
 
@@ -21,10 +25,21 @@ export async function initProfile() {
     if (!profile) throw new Error("No profile data found.");
 
     renderProfileHeader(profile);
-
     setupEditForm(profile, username);
-
     renderListings(profile.listings, profile.name, container);
+
+    const bidsResponse = await fetchBidsByProfile(username);
+    console.log("BIDS RESPONSE:", bidsResponse);
+    console.log("BIDS DATA:", bidsResponse.data);
+    console.log("FIRST BID:", bidsResponse.data?.[0]);
+    const bids = bidsResponse || [];
+
+    bidsContainer.innerHTML = "";
+
+    bids.forEach((bid) => {
+      const html = createSingleBidHtml(bid);
+      if (html) bidsContainer.appendChild(html);
+    });
   } catch (error) {
     console.error("Profile Error:", error);
     container.innerHTML = `<p class="text-red-500 text-center">Error loading profile data.</p>`;

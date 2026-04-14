@@ -42,8 +42,8 @@ export function updateProfile(username, avatarUrl, bio) {
   });
 }
 
-export function getBidsByProfileData(username) {
-  return fetchData(`${getBidsByProfile(username)}?_author=true&_bids=true`);
+export function fetchBidsByProfile(username) {
+  return fetchData(`${getBidsByProfile(username)}?_listings=true`);
 }
 
 export function getAllWinsByProfileData(username) {
