@@ -2,7 +2,7 @@ import {
   fetchSingleListingById,
   updateListingById,
 } from "../api/listingsApi.mjs";
-import { getFromLocalStorage } from "../utils/utils.mjs";
+import { getFromLocalStorage } from "../utils/localStorage.mjs";
 import { createHeader } from "../components/header.mjs";
 import { showSpinner, hideSpinner } from "../components/loadingSpinner.mjs";
 
@@ -41,9 +41,10 @@ async function populateForm() {
     }
 
     document.getElementById("listing-title").value = listing.title || "";
-    document.getElementById("listing-description").value = listing.description || "";
-    document.getElementById("listing-tags").value = listing.tags?.join(", ") || "";
-
+    document.getElementById("listing-description").value =
+      listing.description || "";
+    document.getElementById("listing-tags").value =
+      listing.tags?.join(", ") || "";
 
     if (listing.media && listing.media.length > 0) {
       const media = listing.media[0];
@@ -54,7 +55,6 @@ async function populateForm() {
       if (altInput) {
         altInput.value = media.alt || "";
       }
-
 
       if (previewImage && media.url) {
         previewImage.src = media.url;

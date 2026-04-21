@@ -1,6 +1,6 @@
 import { createHeader } from "../components/header.mjs";
 import { renderListingsContainer } from "../components/renderListingsContainer.mjs";
-import { getFromLocalStorage } from "../utils/utils.mjs";
+import { getFromLocalStorage } from "../utils/localStorage.mjs";
 import { initSearch } from "../components/search.mjs";
 
 createHeader();

@@ -4,7 +4,10 @@ import {
   NOROFF_API_KEY,
 } from "../constants/constants.mjs";
 import { fetchData } from "../api/apiFetch.mjs";
-import { getFromLocalStorage, addToLocalStorage } from "../utils/utils.mjs";
+import {
+  getFromLocalStorage,
+  addToLocalStorage,
+} from "../utils/localStorage.mjs";
 import { showSpinner, hideSpinner } from "../components/loadingSpinner.mjs";
 
 /**

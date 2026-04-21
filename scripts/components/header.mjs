@@ -1,5 +1,5 @@
 import { API_BASE_URL } from "../constants/constants.mjs";
-import { getFromLocalStorage } from "../utils/utils.mjs";
+import { getFromLocalStorage } from "../utils/localStorage.mjs";
 import { getSingleProfile } from "../constants/constants.mjs";
 import { fetchData } from "../api/apiFetch.mjs";
 
