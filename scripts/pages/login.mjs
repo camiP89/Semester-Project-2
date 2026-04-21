@@ -1,7 +1,7 @@
 import { loginUser } from "../api/authApi.mjs";
 import { createHeader } from "../components/header.mjs";
 import { hideSpinner, showSpinner } from "../components/loadingSpinner.mjs";
-import { addToLocalStorage } from "../utils/utils.mjs";
+import { addToLocalStorage } from "../utils/localStorage.mjs";
 
 createHeader();
 
