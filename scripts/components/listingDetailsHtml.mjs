@@ -33,8 +33,26 @@ export function createListingDetailsHtml(listingData) {
   const desc = clone.querySelector(".js-description");
   if (desc)
     desc.textContent = listingData.description || "No description provided.";
-  console.log("4. Component successfully built.");
 
+  const tagsContainer = clone.querySelector(".js-tag-container");
+
+  if (tagsContainer) {
+    tagsContainer.innerHTML = "";
+
+    if (listingData.tags && listingData.tags.length > 0) {
+      listingData.tags.forEach((tag) => {
+        const span = document.createElement("span");
+
+        span.className =
+          "text-xs bg-detail/20 px-2 py-1 rounded-full text-text";
+
+        span.textContent = tag;
+        tagsContainer.appendChild(span);
+      });
+    } else {
+      tagsContainer.textContent = "No tags available";
+    }
+  }
   const historyContainer = clone.querySelector(".js-bid-history-container");
   if (historyContainer) {
     historyContainer.innerHTML = "";

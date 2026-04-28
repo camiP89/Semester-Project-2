@@ -42,7 +42,7 @@ export async function mainId() {
 
     listingDetailsContainer.innerHTML = "";
     listingDetailsContainer.appendChild(singleListingHtml);
-
+    console.log("APPENDED TO DOM");
     setupBidForm(listingData, mainId);
 
     document.title = `${listingData.title} | Student Auction House`;
@@ -56,4 +56,3 @@ export async function mainId() {
 }
 
 mainId();
-
