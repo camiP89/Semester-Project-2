@@ -25,7 +25,7 @@ export async function renderListingsContainer(headingText, pageSize = 10) {
   try {
     allListings = await fetchAllListings();
 
-    sortedListings = [...allListings];
+    sortedListings = sortListings(allListings, "newest");
 
     currentIndex = loadMoreListings(sortedListings, currentIndex, pageSize);
     toggleLoadMore("load-more-button", currentIndex, sortedListings.length);
