@@ -172,11 +172,19 @@
         id="profile-info"
         class="my-8 p-6 bg-white rounded-2xl shadow-lg border-2 border-border"
       >
+        <div class="w-full h-40 md:h-56 rounded-xl overflow-hidden mb-6">
+          <img
+            id="profile-banner"
+            src="/assets/fallback-img.jpg"
+            alt="Profile banner"
+            class="w-full h-full object-cover rounded-xl border-4 border-primary"
+          />
+        </div>
         <div class="flex flex-col md:flex-row items-center gap-6">
           <img
             id="profile-avatar"
             src="/assets/hat-icon.png"
-            class="w-32 h-32 rounded-full object-cover border-4 border-primary"
+            class="w-32 h-32 rounded-full object-contain border-4 border-primary"
             alt="Profile Picture"
           />
           <div class="text-center md:text-left grow">
@@ -190,11 +198,6 @@
                 class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-bold"
                 >Credits: 0</span
               >
-              <span
-                id="wins-count"
-                class="bg-accent/10 text-accent px-3 py-1 rounded-full text-sm font-bold"
-                >Wins: 0</span
-              >
             </div>
           </div>
           <div class="flex flex-col gap-2">
@@ -203,6 +206,16 @@
               class="hidden my-6 p-4 bg-gray-50 rounded-xl border-2 border-dashed border-detail/30"
             >
               <form id="update-profile-form" class="flex flex-col gap-4">
+                <div>
+                  <label class="block text-sm font-bold mb-1"
+                    >New Banner URL</label
+                  >
+                  <input
+                    type="url"
+                    name="bannerUrl"
+                    class="w-full p-2 rounded border border-border"
+                  />
+                </div>
                 <div>
                   <label class="block text-sm font-bold mb-1"
                     >New Avatar URL</label

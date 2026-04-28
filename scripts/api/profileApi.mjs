@@ -4,7 +4,6 @@ import {
   updateProfileUrl,
   getListingsByProfile,
   getBidsByProfile,
-  getAllWinsByProfile
 } from "../constants/constants.mjs";
 import { fetchData } from "../api/apiFetch.mjs";
 
@@ -18,19 +17,18 @@ export function fetchAllProfiles() {
  * @returns {Promise<Object>} The profile data
  */
 export function fetchProfile(username) {
-  return fetchData(
-    `${getSingleProfile(username)}?_listings=true&_bids=true`
-  );
+  return fetchData(`${getSingleProfile(username)}?_listings=true&_bids=true`);
 }
 
 export function fetchListingsByProfile(userName) {
-  return fetchData(
-    `${getListingsByProfile(userName)}?_author=true&_bids=true`
-  );
+  return fetchData(`${getListingsByProfile(userName)}`);
 }
 
-export function updateProfile(username, avatarUrl, bio) {
+export function updateProfile(username, bannerUrl, avatarUrl, bio) {
   const body = {
+    ...(bannerUrl && {
+      banner: { url: bannerUrl, alt: `${username}'s banner` },
+    }),
     ...(avatarUrl && {
       avatar: { url: avatarUrl, alt: `${username}'s avatar` },
     }),
@@ -47,5 +45,5 @@ export function fetchBidsByProfile(username) {
 }
 
 export function getAllWinsByProfileData(username) {
-  return fetchData(`${getAllWinsByProfile(username)}?_author=true&_wins=true`);
+  return fetchData(`${getListingsByProfile(username)}?_bids=true&_seller=true`);
 }
