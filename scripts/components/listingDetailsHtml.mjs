@@ -1,3 +1,5 @@
+import { getListingStatus } from "../utils/listingStatus.mjs";
+
 export function createListingDetailsHtml(listingData) {
   console.log("1. Data received by component:", listingData);
   const template = document.querySelector("#listing-template");
@@ -16,9 +18,47 @@ export function createListingDetailsHtml(listingData) {
   clone.querySelector(".js-date").textContent = new Date(
     listingData.created,
   ).toLocaleDateString();
-  clone.querySelector(".js-ends-at").textContent =
-    `Ends: ${new Date(listingData.endsAt).toLocaleDateString()}`;
+  const endsAt = new Date(listingData.endsAt);
 
+  const dateEl = clone.querySelector(".js-end-date");
+  const timeEl = clone.querySelector(".js-end-time");
+
+  if (dateEl) {
+    dateEl.textContent = endsAt.toLocaleDateString();
+  }
+
+  if (timeEl) {
+    timeEl.textContent = endsAt.toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+  }
+
+  const statusEl = clone.querySelector(".js-status-badge");
+  const status = getListingStatus(listingData.endsAt);
+
+  if (statusEl) {
+  
+    statusEl.className = "";
+
+    statusEl.classList.add(
+      "px-2",
+      "py-1",
+      "text-xs",
+      "rounded-lg",
+      "text-white",
+    );
+
+    if (status === "ending") {
+      statusEl.textContent = "Ending soon";
+      statusEl.classList.add("bg-yellow-500");
+    } else if (status === "ended") {
+      statusEl.textContent = "Ended";
+      statusEl.classList.add("bg-red-500");
+    } else {
+      statusEl.style.display = "none";
+    }
+  }
   clone.querySelector(".js-bid-count").textContent =
     `${listingData._count?.bids || 0} bids`;
 
@@ -31,8 +71,9 @@ export function createListingDetailsHtml(listingData) {
   }
 
   const desc = clone.querySelector(".js-description");
-  if (desc)
+  if (desc) {
     desc.textContent = listingData.description || "No description provided.";
+  }
 
   const tagsContainer = clone.querySelector(".js-tag-container");
 

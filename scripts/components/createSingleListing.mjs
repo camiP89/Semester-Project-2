@@ -1,13 +1,15 @@
 import { deleteListing } from "../constants/constants.mjs";
 import { fetchData } from "../api/apiFetch.mjs";
+import { getListingStatus } from "../utils/listingStatus.mjs";
 
 /**
  * Creates a listing card HTML element from a template.
- * @param {Object} listing - The listing data from the API.
- * @param {string|null} profileUserName - Optional: The name of the profile owner if fetching from the profile endpoint.
+ * @param {Object} listing
+ * @param {string|null} profileUserName
  */
 export function createSingleListingHtml(listing, profileUserName = null) {
   const template = document.querySelector("#listing-card-template");
+
   if (!template) {
     console.error("Template #listing-card-template not found!");
     return null;
@@ -27,15 +29,52 @@ export function createSingleListingHtml(listing, profileUserName = null) {
     ? new Date(listing.created).toLocaleDateString()
     : "N/A";
 
-  const endsAtDate = listing.endsAt
-    ? new Date(listing.endsAt).toLocaleDateString()
-    : "N/A";
-
   const dateEl = clone.querySelector(".js-date");
   if (dateEl) dateEl.textContent = createdDate;
 
-  const endsAtEl = clone.querySelector(".js-ends-at");
-  if (endsAtEl) endsAtEl.textContent = `Ends: ${endsAtDate}`;
+  const endDateEl = clone.querySelector(".js-end-date");
+  const endTimeEl = clone.querySelector(".js-end-time");
+
+  if (listing.endsAt) {
+    const date = new Date(listing.endsAt);
+
+    if (endDateEl) {
+      endDateEl.textContent = date.toLocaleDateString();
+    }
+
+    if (endTimeEl) {
+      endTimeEl.textContent = date.toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit",
+      });
+    }
+  }
+
+  const statusWrapper = clone.querySelector(".js-status-wrapper");
+  const statusBadge = clone.querySelector(".js-status-badge");
+
+  if (statusWrapper && statusBadge && listing.endsAt) {
+    const status = getListingStatus(listing.endsAt);
+
+    statusWrapper.className =
+      "js-status-wrapper absolute top-3 right-3 text-xs font-semibold px-2 py-1 rounded-lg backdrop-blur-md hidden";
+
+    statusBadge.className = "js-status-badge text-white";
+
+    if (status === "ended") {
+      statusBadge.textContent = "Ended";
+
+      statusWrapper.classList.remove("hidden");
+      statusWrapper.classList.add("bg-red-500");
+    } else if (status === "ending") {
+      statusBadge.textContent = "Ending soon";
+
+      statusWrapper.classList.remove("hidden");
+      statusWrapper.classList.add("bg-yellow-500");
+    } else {
+      statusWrapper.classList.add("hidden");
+    }
+  }
 
   const bidCountEl = clone.querySelector(".js-bid-count");
   if (bidCountEl) {
@@ -44,6 +83,7 @@ export function createSingleListingHtml(listing, profileUserName = null) {
   }
 
   const highestBidElement = clone.querySelector(".js-highest-bid");
+
   if (highestBidElement) {
     if (listing.bids && listing.bids.length > 0) {
       const maxBid = Math.max(...listing.bids.map((b) => b.amount));
@@ -60,10 +100,12 @@ export function createSingleListingHtml(listing, profileUserName = null) {
   if (authorEl) authorEl.textContent = authorName;
 
   const descEl = clone.querySelector(".js-description");
-  if (descEl)
+  if (descEl) {
     descEl.textContent = listing.description || "No description available.";
+  }
 
   const imageEl = clone.querySelector(".js-image");
+
   if (imageEl) {
     const imageUrl = listing.media?.[0]?.url ?? "/assets/hat-icon.png";
     imageEl.style.backgroundImage = `url('${imageUrl}')`;
@@ -84,7 +126,10 @@ export function createSingleListingHtml(listing, profileUserName = null) {
 
         if (confirm(`Delete "${listing.title}"? This cannot be undone.`)) {
           try {
-            await fetchData(deleteListing(listing.id), { method: "DELETE" });
+            await fetchData(deleteListing(listing.id), {
+              method: "DELETE",
+            });
+
             alert("Deleted successfully.");
             card.remove();
           } catch (err) {
@@ -104,6 +149,7 @@ export function createSingleListingHtml(listing, profileUserName = null) {
   }
 
   const listingLink = clone.querySelector(".js-link");
+
   if (listingLink) {
     listingLink.href = `/listings/listing-detail.html?id=${listing.id}`;
   }

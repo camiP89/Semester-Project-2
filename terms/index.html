@@ -45,11 +45,12 @@
       <nav
         class="container mx-auto px-4 py-2 flex items-center justify-between"
       >
-        <a
-          href="/index.html"
-          class="w-40 hover:opacity-80 transition-opacity shrink-0"
-        >
-          <img src="/assets/studentauctionhouselogo.png" alt="Logo" />
+        <a href="/index.html" class="shrink-0">
+          <img
+            src="/assets/studentauctionhouselogo.png"
+            alt="Student Auction House logo"
+            class="h-8 md:h-10 w-auto"
+          />
         </a>
 
         <div
@@ -58,14 +59,21 @@
         >
           <p
             id="welcome-text"
-            class="text-xs font-medium italic text-primary"
+            class="text-xs md:hidden lg:block lg:text-base font-medium italic text-primary"
           ></p>
 
-          <div class="flex items-center gap-1">
-            <img src="/assets/sp2-coin.png" class="w-4 h-4" alt="credits" />
-            <span id="user-credits" class="text-xs font-bold text-primary"
-              >0</span
+          <div class="flex items-center gap-1 md:gap-2">
+            <img
+              src="/assets/sp2-coin.png"
+              class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6"
+              alt="credits"
+            />
+            <span
+              id="user-credits"
+              class="text-xs md:text-sm lg:text-base font-bold text-primary"
             >
+              0
+            </span>
           </div>
         </div>
 
@@ -167,12 +175,13 @@
         </div>
       </div>
     </header>
-    <main class="container mx-auto bg-off-white px-4 py-12 max-w-3xl">
+    <main class="container mx-auto bg-off-white px-4 py-6 max-w-3xl">
+      <h1
+        class="font-heading mx-auto mb-3 rounded-lg p-2 text-center text-2xl md:text-4xl my-4 font-bold text-primary"
+      >
+        Our Terms
+      </h1>
       <div class="bg-white border border-border/30 rounded-2xl shadow-md p-8">
-        <h1 class="mb-8 text-center font-sans sm:text-xl md:text-2xl tracking-wide font-bold text-text">
-          Terms of Service
-        </h1>
-
         <p class="text-sm text-detail italic mb-8">Last Updated: March 2026</p>
 
         <section class="space-y-8">

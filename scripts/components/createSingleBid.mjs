@@ -1,3 +1,5 @@
+import { getListingStatus } from "../utils/listingStatus.mjs";
+
 export function createSingleBidHtml(bid) {
   const template = document.getElementById("bid-card-template");
 
@@ -27,14 +29,49 @@ export function createSingleBidHtml(bid) {
     amountEl.textContent = bid.amount;
   }
 
-  const dateEl = clone.querySelector(".js-date");
-  if (dateEl) {
-    dateEl.textContent = new Date(bid.created).toLocaleDateString();
+  const endDateEl = clone.querySelector(".js-end-date");
+  const endTimeEl = clone.querySelector(".js-end-time");
+
+  let status = null;
+  let date = null;
+
+  if (listing.endsAt) {
+    date = new Date(listing.endsAt);
+
+    if (endDateEl) {
+      endDateEl.textContent = date.toLocaleDateString();
+    }
+
+    if (endTimeEl) {
+      endTimeEl.textContent = date.toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit",
+      });
+    }
+
+    status = getListingStatus(listing.endsAt);
   }
 
-  const endsAtEl = clone.querySelector(".js-ends-at");
-  if (endsAtEl) {
-    endsAtEl.textContent = `${new Date(listing.endsAt).toLocaleDateString()}`;
+  const statusBadge = clone.querySelector(".js-status-badge");
+  const statusWrapper = clone.querySelector(".js-status-wrapper");
+
+  if (statusBadge && statusWrapper && status) {
+    statusWrapper.className =
+      "js-status-wrapper absolute top-3 right-3 text-xs font-semibold px-2 py-1 rounded-lg backdrop-blur-md hidden";
+
+    statusBadge.className = "js-status-badge text-white";
+
+    if (status === "ended") {
+      statusBadge.textContent = "Ended";
+      statusWrapper.classList.remove("hidden");
+      statusWrapper.classList.add("bg-red-500");
+    } else if (status === "ending") {
+      statusBadge.textContent = "Ending soon";
+      statusWrapper.classList.remove("hidden");
+      statusWrapper.classList.add("bg-yellow-500");
+    } else {
+      statusWrapper.classList.add("hidden");
+    }
   }
 
   const linkEl = clone.querySelector(".js-link");

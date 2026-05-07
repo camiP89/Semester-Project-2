@@ -45,27 +45,34 @@
       <nav
         class="container mx-auto px-4 py-2 flex items-center justify-between"
       >
-        <a
-          href="/index.html"
-          class="w-40 hover:opacity-80 transition-opacity shrink-0"
-        >
-          <img src="/assets/studentauctionhouselogo.png" alt="Logo" />
+        <a href="/index.html" class="shrink-0">
+          <img
+            src="/assets/studentauctionhouselogo.png"
+            alt="Student Auction House logo"
+            class="h-8 md:h-10 w-auto"
+          />
         </a>
-
         <div
           id="user-status-bar"
           class="hidden flex-col items-start gap-1 sm:flex-row sm:items-center"
         >
           <p
             id="welcome-text"
-            class="text-xs font-medium italic text-primary"
+            class="text-xs md:hidden lg:block lg:text-base font-medium italic text-primary"
           ></p>
 
-          <div class="flex items-center gap-1">
-            <img src="/assets/sp2-coin.png" class="w-4 h-4" alt="credits" />
-            <span id="user-credits" class="text-xs font-bold text-primary"
-              >0</span
+          <div class="flex items-center gap-1 md:gap-2">
+            <img
+              src="/assets/sp2-coin.png"
+              class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6"
+              alt="credits"
+            />
+            <span
+              id="user-credits"
+              class="text-xs md:text-sm lg:text-base font-bold text-primary"
             >
+              0
+            </span>
           </div>
         </div>
 
@@ -168,10 +175,10 @@
       </div>
     </header>
     <main
-      class="container mx-auto flex flex-col items-center bg-off-white justify-center px-4 py-12"
+      class="container mx-auto flex flex-col items-center bg-off-white justify-center px-4 pb-4"
     >
       <h1
-        class="mb-8 text-center font-sans sm:text-xl md:text-3xl tracking-wide font-bold text-text"
+        class="font-heading mx-auto mb-3 rounded-lg p-2 text-center text-2xl md:text-4xl my-4 font-bold text-primary"
       >
         Edit Listing
       </h1>
@@ -270,7 +277,7 @@
             Update
           </button>
           <button
-            class="text-md w-full rounded-lg py-2 font-bold bg-primary/30 text-text shadow-md transition hover:text-white active:bg-red-500 px-4 hover:bg-red-500"
+            class="text-md w-full rounded-lg py-2 font-bold bg-border/30 text-text shadow-md transition hover:text-white active:bg-red-500 px-4 hover:bg-red-500"
             type="button"
             onclick="window.location.href = '../listings/index.html'"
             name="action"

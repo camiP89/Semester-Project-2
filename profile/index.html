@@ -45,11 +45,12 @@
       <nav
         class="container mx-auto px-4 py-2 flex items-center justify-between"
       >
-        <a
-          href="/index.html"
-          class="w-40 hover:opacity-80 transition-opacity shrink-0"
-        >
-          <img src="/assets/studentauctionhouselogo.png" alt="Logo" />
+        <a href="/index.html" class="shrink-0">
+          <img
+            src="/assets/studentauctionhouselogo.png"
+            alt="Student Auction House logo"
+            class="h-8 md:h-10 w-auto"
+          />
         </a>
 
         <div
@@ -58,14 +59,21 @@
         >
           <p
             id="welcome-text"
-            class="text-xs font-medium italic text-primary"
+            class="text-xs md:hidden lg:block lg:text-base font-medium italic text-primary"
           ></p>
 
-          <div class="flex items-center gap-1">
-            <img src="/assets/sp2-coin.png" class="w-4 h-4" alt="credits" />
-            <span id="user-credits" class="text-xs font-bold text-primary"
-              >0</span
+          <div class="flex items-center gap-1 md:gap-2">
+            <img
+              src="/assets/sp2-coin.png"
+              class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6"
+              alt="credits"
+            />
+            <span
+              id="user-credits"
+              class="text-xs md:text-sm lg:text-base font-bold text-primary"
             >
+              0
+            </span>
           </div>
         </div>
 
@@ -195,7 +203,7 @@
             <div class="flex gap-4 mt-4 justify-center md:justify-start">
               <span
                 id="credits-count"
-                class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-bold"
+                class="bg-primary/10 text-accent px-3 py-1 rounded-full text-sm font-bold"
                 >Credits: 0</span
               >
             </div>
@@ -203,7 +211,7 @@
           <div class="flex flex-col gap-2">
             <div
               id="edit-profile-section"
-              class="hidden my-6 p-4 bg-gray-50 rounded-xl border-2 border-dashed border-detail/30"
+              class="hidden my-6 p-4 bg-detail/10 rounded-xl border-2 border-dashed border-detail/30"
             >
               <form id="update-profile-form" class="flex flex-col gap-4">
                 <div>
@@ -244,7 +252,7 @@
                   <button
                     type="button"
                     id="close-edit"
-                    class="bg-gray-300 px-4 py-2 rounded"
+                    class="bg-border/30 px-4 py-2 font-semibold rounded"
                   >
                     Cancel
                   </button>
@@ -266,7 +274,7 @@
         </div>
       </section>
 
-      <h2 class="text-xl font-bold mb-4">My Listings</h2>
+      <h2 class="text-xl text-primary font-bold mb-4">My Listings</h2>
       <template id="listing-card-template">
         <article
           class="group relative overflow-hidden rounded-2xl border-2 border-border bg-white shadow-lg flex flex-col h-full"
@@ -279,6 +287,11 @@
               class="absolute top-3 left-3 text-xs text-white bg-border/80 px-2 py-1 rounded-lg backdrop-blur-md"
             >
               <p class="js-bid-count">0 bids</p>
+            </div>
+            <div
+              class="js-status-wrapper absolute top-3 right-3 hidden text-xs font-semibold px-2 py-1 rounded-lg backdrop-blur-md"
+            >
+              <span class="js-status-badge text-white"></span>
             </div>
             <div
               class="absolute bottom-3 left-3 text-xs text-white bg-border/80 px-2 py-1 rounded-lg backdrop-blur-md"
@@ -349,42 +362,51 @@
 
       <template id="bid-card-template">
         <article
-          class="group relative overflow-hidden rounded-2xl border-2 border-border bg-white shadow-lg flex flex-col"
+          class="group overflow-hidden rounded-2xl border-2 border-border bg-white shadow-lg hover:shadow-xl transition"
         >
-          <div class="h-40 w-full bg-cover bg-center js-image"></div>
+          <div class="relative h-40 w-full overflow-hidden">
+            <div
+              class="js-image h-full w-full bg-cover bg-center group-hover:scale-105 transition-transform"
+            ></div>
 
-          <div class="p-4 flex flex-col gap-2 h-full">
-            <h3 class="js-title font-bold text-lg">Listing title</h3>
+            <!-- Status badge -->
+            <div
+              class="js-status-wrapper absolute top-3 right-3 text-xs font-semibold px-2 py-1 rounded-lg bg-border/80 backdrop-blur-md"
+            >
+              <span class="js-status-badge"></span>
+            </div>
+          </div>
 
+          <!-- Content -->
+          <div class="p-4 flex flex-col gap-2">
+            <!-- Title -->
+            <h3 class="js-title font-semibold text-lg text-text line-clamp-1">
+              Listing title
+            </h3>
+
+            <!-- Your bid -->
             <p class="text-sm">
               Your bid:
               <span class="js-bid-amount font-bold text-accent"></span>
             </p>
 
-            <div class="flex items-center gap-1.5">
-              <span class="text-sm font-medium text-text">Created:</span>
-              <span class="js-date text-sm font-medium text-detail"
-                >Feb 5, 2026</span
-              >
-            </div>
+            <!-- End date -->
+            <p class="text-xs text-text/70">
+              Ends:
+              <span class="js-end-date font-semibold"></span>
+              <span class="js-end-time text-detail"></span>
+            </p>
 
-            <div class="flex items-center gap-1.5">
-              <span class="text-sm font-medium text-text">Ends:</span>
-              <span class="js-ends-at text-sm font-medium text-red-500"
-                >Mar 20,2026</span
-              >
-            </div>
-
+            <!-- CTA -->
             <a
-              class="js-link mt-auto bg-primary text-white text-center py-2 rounded"
+              class="js-link mt-3 bg-primary text-white text-center py-2 rounded-lg text-sm font-medium hover:bg-detail transition"
             >
               View Listing
             </a>
           </div>
         </article>
       </template>
-
-      <h2 class="text-xl font-bold mb-4">My Bids</h2>
+      <h2 class="text-xl text-primary font-bold mb-4">My Bids</h2>
       <div
         id="my-bids-container"
         class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12"

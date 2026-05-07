@@ -45,11 +45,12 @@
       <nav
         class="container mx-auto px-4 py-2 flex items-center justify-between"
       >
-        <a
-          href="/index.html"
-          class="w-40 hover:opacity-80 transition-opacity shrink-0"
-        >
-          <img src="/assets/studentauctionhouselogo.png" alt="Logo" />
+        <a href="/index.html" class="shrink-0">
+          <img
+            src="/assets/studentauctionhouselogo.png"
+            alt="Student Auction House logo"
+            class="h-8 md:h-10 w-auto"
+          />
         </a>
 
         <div
@@ -58,14 +59,21 @@
         >
           <p
             id="welcome-text"
-            class="text-xs font-medium italic text-primary"
+            class="text-xs md:hidden lg:block lg:text-base font-medium italic text-primary"
           ></p>
 
-          <div class="flex items-center gap-1">
-            <img src="/assets/sp2-coin.png" class="w-4 h-4" alt="credits" />
-            <span id="user-credits" class="text-xs font-bold text-primary"
-              >0</span
+          <div class="flex items-center gap-1 md:gap-2">
+            <img
+              src="/assets/sp2-coin.png"
+              class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6"
+              alt="credits"
+            />
+            <span
+              id="user-credits"
+              class="text-xs md:text-sm lg:text-base font-bold text-primary"
             >
+              0
+            </span>
           </div>
         </div>
 
@@ -167,8 +175,9 @@
         </div>
       </div>
     </header>
-    <main class="bg-off-white">
+    <main class="bg-off-white mt-6 md:mt-10">
       <div class="container mx-auto px-4 max-w-7xl">
+        
         <!-- Card template single listing -->
         <template id="listing-template">
           <div
@@ -180,19 +189,24 @@
             >
               <div>
                 <h1
-                  class="js-title my-2 font-sans text-lg text-center font-bold text-text"
+                  class="js-title my-2 font-sans text-lg md:text-2xl text-center font-bold text-text"
                 >
                   Listing Title
                 </h1>
               </div>
 
-              <div class="relative h-60 w-full lg:h-full overflow-hidden">
-                <div
-                  class="js-image h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                ></div>
+              <div
+                class="relative h-60 w-full lg:h-full overflow-hidden lg:row-span-2"
+              >
+                <div class="js-image h-full w-full bg-cover bg-center"></div>
               </div>
               <div class="p-4 flex flex-col">
                 <div class="flex flex-col gap-0.5 mt-2">
+                  <div class="flex items-center gap-2 mb-2">
+                    <span
+                      class="js-status-badge px-2 py-1 text-xs rounded-lg"
+                    ></span>
+                  </div>
                   <div class="flex- items-center gap-1.5">
                     <span class="text-sm font-medium text-text">By:</span>
                     <span class="js-author text-sm font-medium text-detail"
@@ -205,11 +219,11 @@
                       >Feb 5, 2026</span
                     >
                   </div>
-                  <div class="flex items-center gap-1.5">
+
+                  <div class="flex items-center gap-1.5 text-sm text-text/80">
                     <span class="text-sm font-medium text-text">Ends:</span>
-                    <span class="js-ends-at text-sm font-medium text-detail"
-                      >Mar 20,2026</span
-                    >
+                    <span class="js-end-date"></span>
+                    <span class="js-end-time text-detail/80"></span>
                   </div>
                 </div>
 

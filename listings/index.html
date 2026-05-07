@@ -45,11 +45,12 @@
       <nav
         class="container mx-auto px-4 py-2 flex items-center justify-between"
       >
-        <a
-          href="/index.html"
-          class="w-40 hover:opacity-80 transition-opacity shrink-0"
-        >
-          <img src="/assets/studentauctionhouselogo.png" alt="Logo" />
+        <a href="/index.html" class="shrink-0">
+          <img
+            src="/assets/studentauctionhouselogo.png"
+            alt="Student Auction House logo"
+            class="h-8 md:h-10 w-auto"
+          />
         </a>
 
         <div
@@ -58,14 +59,21 @@
         >
           <p
             id="welcome-text"
-            class="text-xs font-medium italic text-primary"
+            class="text-xs md:hidden lg:block lg:text-base font-medium italic text-primary"
           ></p>
 
-          <div class="flex items-center gap-1">
-            <img src="/assets/sp2-coin.png" class="w-4 h-4" alt="credits" />
-            <span id="user-credits" class="text-xs font-bold text-primary"
-              >0</span
+          <div class="flex items-center gap-1 md:gap-2">
+            <img
+              src="/assets/sp2-coin.png"
+              class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6"
+              alt="credits"
+            />
+            <span
+              id="user-credits"
+              class="text-xs md:text-sm lg:text-base font-bold text-primary"
             >
+              0
+            </span>
           </div>
         </div>
 
@@ -182,14 +190,14 @@
             <input
               type="text"
               id="search-input"
-              placeholder="Search Posts..."
+              placeholder="Search by title or tags..."
               class="w-full rounded-lg border-2 py-2 pr-4 pl-10 text-text/80 border-border/30 text-xs md:text-sm focus:ring-2 focus:ring-detail focus:outline-none"
             />
             <i
               class="fa-solid fa-magnifying-glass absolute top-1/2 left-3 -translate-y-1/2 text-text/80"
             ></i>
           </div>
-           <!-- Sort -->
+          <!-- Sort -->
           <select
             id="sort-dropdown"
             class="rounded-lg border-2 border-border/30 text-xs md:text-sm text-text/80 bg-white px-4 py-2 focus:ring-2 focus:ring-detail focus:outline-none"
@@ -214,10 +222,20 @@
               >
                 <p class="js-bid-count">0 bids</p>
               </div>
+              
+              <div
+                class="js-status-wrapper absolute top-3 right-3 hidden text-xs font-semibold px-2 py-1 rounded-lg backdrop-blur-md"
+              >
+                <span class="js-status-badge text-white"></span>
+              </div>
               <div
                 class="absolute bottom-3 left-3 text-xs text-white bg-border/80 px-2 py-1 rounded-lg backdrop-blur-md"
               >
-                <p class="js-ends-at">Ends: Mar 20,2026</p>
+                <p>
+                  Ends:
+                  <span class="js-end-date"></span>
+                  <span class="js-end-time text-white/80"></span>
+                </p>
               </div>
             </div>
             <div class="p-4 flex flex-col grow">
@@ -272,7 +290,7 @@
         <div class="load-more-container flex justify-center">
           <button
             id="load-more-button"
-            class="button my-5 font-heading text-lg md:text-2xl w-full rounded-lg py-2 font-semibold text-text bg-detail shadow-md hover:bg-primary hover:text-white focus:ring-2 focus:ring-primary focus:outline-primary active:bg-primary transition-colors"git status
+            class="button my-5 font-heading text-lg md:text-2xl w-full rounded-lg py-2 font-semibold text-text bg-detail shadow-md hover:bg-primary hover:text-white focus:ring-2 focus:ring-primary focus:outline-primary active:bg-primary transition-colors"
             style="display: none"
           >
             Load More

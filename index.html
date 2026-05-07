@@ -45,11 +45,12 @@
       <nav
         class="container mx-auto px-4 py-2 flex items-center justify-between"
       >
-        <a
-          href="/index.html"
-          class="w-40 hover:opacity-80 transition-opacity shrink-0"
-        >
-          <img src="/assets/studentauctionhouselogo.png" alt="Logo" />
+        <a href="/index.html" class="shrink-0">
+          <img
+            src="/assets/studentauctionhouselogo.png"
+            alt="Student Auction House logo"
+            class="h-8 md:h-10 w-auto"
+          />
         </a>
 
         <div
@@ -58,14 +59,21 @@
         >
           <p
             id="welcome-text"
-            class="text-xs font-medium italic text-primary"
+            class="text-xs md:hidden lg:block lg:text-base font-medium italic text-primary"
           ></p>
 
-          <div class="flex items-center gap-1">
-            <img src="/assets/sp2-coin.png" class="w-4 h-4" alt="credits" />
-            <span id="user-credits" class="text-xs font-bold text-primary"
-              >0</span
+          <div class="flex items-center gap-1 md:gap-2">
+            <img
+              src="/assets/sp2-coin.png"
+              class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6"
+              alt="credits"
+            />
+            <span
+              id="user-credits"
+              class="text-xs md:text-sm lg:text-base font-bold text-primary"
             >
+              0
+            </span>
           </div>
         </div>
 
@@ -111,7 +119,9 @@
           </div>
 
           <button id="menu-btn" class="p-2 md:hidden block">
-            <i class="fa-solid fa-bars text-2xl p-2 rounded-lg text-primary"></i>
+            <i
+              class="fa-solid fa-bars text-2xl p-2 rounded-lg text-primary"
+            ></i>
           </button>
         </div>
       </nav>
@@ -212,7 +222,7 @@
             <input
               type="text"
               id="search-input"
-              placeholder="Search Posts..."
+              placeholder="Search by title or tags..."
               class="w-full rounded-lg border-2 py-2 pr-4 pl-10 text-text/80 border-border/30 text-xs md:text-sm focus:ring-2 focus:ring-detail focus:outline-none"
             />
             <i
@@ -246,9 +256,18 @@
                 <p class="js-bid-count">0 bids</p>
               </div>
               <div
+                class="js-status-wrapper absolute top-3 right-3 hidden text-xs font-semibold px-2 py-1 rounded-lg backdrop-blur-md"
+              >
+                <span class="js-status-badge text-white"></span>
+              </div>
+              <div
                 class="absolute bottom-3 left-3 text-xs text-white bg-border/80 px-2 py-1 rounded-lg backdrop-blur-md"
               >
-                <p class="js-ends-at">Ends: Mar 20,2026</p>
+                <p>
+                  Ends:
+                  <span class="js-end-date"></span>
+                  <span class="js-end-time text-white/80"></span>
+                </p>
               </div>
             </div>
             <div class="p-4 flex flex-col grow">
@@ -297,7 +316,7 @@
 
         <div
           id="listings-container"
-       class="grid grid-cols-2 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
+          class="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
         ></div>
 
         <div class="load-more-container flex justify-center">
