@@ -46,6 +46,14 @@ async function populateForm() {
     document.getElementById("listing-tags").value =
       listing.tags?.join(", ") || "";
 
+    const endDateInput = document.getElementById("end-datetime");
+
+    if (listing.endsAt && endDateInput) {
+      const date = new Date(listing.endsAt);
+
+      endDateInput.value = date.toISOString().slice(0, 16);
+    }
+
     if (listing.media && listing.media.length > 0) {
       const media = listing.media[0];
       const altInput = document.getElementById("image-alt-text");
