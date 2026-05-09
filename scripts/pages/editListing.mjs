@@ -11,7 +11,7 @@ createHeader();
 const urlParams = new URLSearchParams(window.location.search);
 const listingId = urlParams.get("id");
 
-const editForm = document.getElementById("create-listing-container");
+const editForm = document.getElementById("edit-listing-container");
 const imageInput = document.getElementById("image-url");
 const previewImage = document.getElementById("image-preview");
 const cancelBtn = document.querySelector("button[value='Cancel']");

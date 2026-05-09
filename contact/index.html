@@ -123,12 +123,12 @@
         <div class="flex flex-col items-center font-sans gap-6">
           <a
             href="/index.html"
-            class="text-md font-semibold hover:text-detail active:text-detail hover:underline hover:decoration-detail underline-offset-4 transition-all text-primary"
+            class="font-medium hover:text-detail active:text-detail hover:underline hover:decoration-detail underline-offset-4 transition-all text-primary"
             >Home</a
           >
           <a
             href="/about/index.html"
-            class="text-md font-semibold hover:text-detail active:text-detail hover:underline hover:decoration-detail underline-offset-4 transition-all text-primary"
+            class="font-medium hover:text-detail active:text-detail hover:underline hover:decoration-detail underline-offset-4 transition-all text-primary"
             >About</a
           >
 
@@ -138,12 +138,12 @@
           >
             <a
               href="/listings/index.html"
-              class="text-md font-semibold hover:text-detail active:text-detail hover:underline hover:decoration-detail underline-offset-4 transition-all text-primary"
+              class="font-medium hover:text-detail active:text-detail hover:underline hover:decoration-detail underline-offset-4 transition-all text-primary"
               >Listings</a
             >
             <a
               href="/profile/index.html"
-              class="text-md font-semibold hover:text-detail active:text-detail hover:underline hover:decoration-detail underline-offset-4 transition-all text-primary"
+              class="font-medium hover:text-detail active:text-detail hover:underline hover:decoration-detail underline-offset-4 transition-all text-primary"
               >Profile</a
             >
             <button
@@ -168,15 +168,12 @@
       </div>
     </header>
     <main
-      class="container mx-auto flex flex-col items-center justify-center px-4 py-12"
+      class="container mx-auto flex flex-col items-center justify-center px-4 py-4"
     >
-      <h1
-        class="mb-8 text-center font-sans sm:text-xl md:text-2xl tracking-wide font-bold text-text"
+         <h1
+        class="font-heading mx-auto mb-3 rounded-lg pb-2 text-center text-2xl md:text-4xl my-4 font-bold text-primary"
       >
-        Contact
-        <span class="text-primary sm:text-xl md:text-2xl font-extrabold"
-          >Student Auction House</span
-        >
+        Contact Us
       </h1>
 
       <div
@@ -186,12 +183,12 @@
           <div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
             <div>
               <label
-                class="mb-1 block text-sm font-semibold text-text/80"
+                class="mb-1 block font-sans text-sm font-semibold text-text/80"
                 for="first-name"
                 >First Name</label
               >
               <input
-                class="w-full rounded-lg border border-border/30 px-4 py-2 text-xs focus:ring-2 focus:ring-detail focus:outline-none transition"
+                class="w-full rounded-lg border font-sans border-border/30 px-4 py-2 text-base focus:ring-2 focus:ring-detail focus:outline-none transition"
                 type="text"
                 id="first-name"
                 name="first-name"
@@ -201,12 +198,12 @@
             </div>
             <div>
               <label
-                class="mb-1 block text-sm font-semibold text-text/80"
+                class="mb-1 block font-sans text-sm font-semibold text-text/80"
                 for="last-name"
                 >Last Name</label
               >
               <input
-                class="w-full rounded-lg border border-border/30 px-4 py-2 text-xs focus:ring-2 focus:ring-detail focus:outline-none transition"
+                class="w-full text-base font-sans rounded-lg border border-border/30 px-4 py-2 focus:ring-2 focus:ring-detail focus:outline-none transition"
                 type="text"
                 id="last-name"
                 name="last-name"
@@ -218,12 +215,12 @@
 
           <div>
             <label
-              class="mb-1 block text-sm font-semibold text-text/80"
+              class="mb-1 block font-sans text-sm font-semibold text-text/80"
               for="email"
               >Email Address</label
             >
             <input
-              class="w-full rounded-lg border border-border/30 px-4 py-2 text-xs focus:ring-2 focus:ring-detail focus:outline-none transition"
+              class="w-full rounded-lg border font-sans border-border/30 px-4 py-2 text-base focus:ring-2 focus:ring-detail focus:outline-none transition"
               type="email"
               id="email"
               name="email"
@@ -234,12 +231,12 @@
 
           <div>
             <label
-              class="mb-1 block text-sm font-semibold text-text/80"
+              class="mb-1 block text-sm font-sans font-semibold text-text/80"
               for="message"
               >Message</label
             >
             <textarea
-              class="w-full rounded-lg border border-border/30 px-4 py-2 text-xs focus:ring-2 focus:ring-detail focus:outline-none transition"
+              class="w-full rounded-lg border font-sans border-border/30 px-4 py-2 text-base focus:ring-2 focus:ring-detail focus:outline-none transition"
               id="message"
               name="message"
               rows="4"
@@ -253,7 +250,7 @@
               id="agree-to-policies"
               type="checkbox"
               required
-              class="h-4 w-4 mt-0.5 rounded border-gray-300 text-primary focus:ring-detail"
+              class="h-4 w-4 mt-0.5 rounded font-sans border-gray-300 text-primary focus:ring-detail"
             />
             <label for="agree-to-policies" class="text-xs text-text/70">
               I agree to the
@@ -266,7 +263,7 @@
           </div>
 
           <button
-            class="text-md w-full rounded-lg bg-primary py-2.5 font-semibold text-white shadow-md transition hover:bg-detail hover:text-text focus:ring-2 focus:ring-detail focus:outline-none active:scale-[0.98]"
+            class="w-full font-sans rounded-lg bg-primary py-2.5 font-semibold text-white shadow-md transition hover:bg-detail hover:text-text focus:ring-2 focus:ring-detail focus:outline-none active:scale-[0.98]"
             type="submit"
           >
             Send Message
@@ -317,7 +314,7 @@
         </a>
 
         <div
-          class="flex justify-center font-semibold font-sans sm:text-sm md:text-md space-x-6"
+          class="flex justify-center font-medium font-sans text-xs sm:text-sm space-x-6"
         >
           <a
             href="/contact/index.html"

@@ -13,7 +13,7 @@ export async function createHeader() {
       const profile = await fetchData(
         `${getSingleProfile(userName)}?_credits=true`,
       );
-      credits = profile.data?.credits ?? profile.credits;
+      credits = profile?.data?.credits ?? profile?.credits ?? 0;
     } catch (err) {
       console.error("Failed to fetch profile:", err);
     }

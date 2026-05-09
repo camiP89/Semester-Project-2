@@ -5,6 +5,21 @@ import { hideSpinner, showSpinner } from "../components/loadingSpinner.mjs";
 createHeader();
 
 const listingForm = document.getElementById("create-listing-container");
+const imageInput = document.getElementById("image-url");
+const previewImage = document.getElementById("image-preview");
+
+imageInput.addEventListener("input", () => {
+  const url = imageInput.value.trim();
+
+  if (!url) {
+    previewImage.classList.add("hidden");
+    previewImage.src = "";
+    return;
+  }
+
+  previewImage.src = url;
+  previewImage.classList.remove("hidden");
+});
 
 listingForm.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -14,21 +29,7 @@ listingForm.addEventListener("submit", async (event) => {
     .getElementById("listing-description")
     .value.trim();
   const listingImage = document.getElementById("image-url").value.trim();
-  const imageInput = document.getElementById("image-url");
-  const previewImage = document.getElementById("image-preview");
 
-  imageInput.addEventListener("input", () => {
-    const url = imageInput.value.trim();
-
-    if (!url) {
-      previewImage.classList.add("hidden");
-      previewImage.src = "";
-      return;
-    }
-
-    previewImage.src = url;
-    previewImage.classList.remove("hidden");
-  });
   const imageAltText = document.getElementById("image-alt-text").value.trim();
   const listingTags = document
     .getElementById("listing-tags")
@@ -57,7 +58,7 @@ listingForm.addEventListener("submit", async (event) => {
     await createListing(listingData);
 
     alert("Post created successfully!");
-    window.location.href = "../listings/index.html";
+    window.location.href = "../profile/index.html";
   } catch (error) {
     console.error(error);
     alert("Failed to create listing. Check console for details.");
