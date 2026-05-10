@@ -18,7 +18,7 @@ export function showSpinner() {
 
     const loader = document.createElement("div");
     loader.className =
-      "w-[50px] h-[50px] rounded-full border-[5px] border-accent " +
+      "w-[50px] h-[50px] rounded-full border-[5px] border-detail " +
       "border-t-[6px] border-b-[6px] border-b-black " +
       "animate-spin shadow-md";
 
