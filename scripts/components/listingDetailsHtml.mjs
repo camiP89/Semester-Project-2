@@ -38,7 +38,7 @@ export function createListingDetailsHtml(listingData) {
   const status = getListingStatus(listingData.endsAt);
 
   if (statusEl) {
-  
+
     statusEl.className = "";
 
     statusEl.classList.add(
@@ -54,7 +54,7 @@ export function createListingDetailsHtml(listingData) {
       statusEl.classList.add("bg-yellow-500");
     } else if (status === "ended") {
       statusEl.textContent = "Ended";
-      statusEl.classList.add("bg-red-500");
+      statusEl.classList.add("bg-red-700");
     } else {
       statusEl.style.display = "none";
     }

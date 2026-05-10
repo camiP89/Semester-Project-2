@@ -103,7 +103,7 @@
               >
               <button
                 id="logout-button"
-                class="bg-primary text-white px-6 py-1.5 rounded-lg text-sm font-semibold"
+                class="bg-primary text-white px-6 py-1.5 rounded-lg text-sm font-semibold transition-colors duration-200 hover:bg-red-700 hover:text-white active:bg-red-800 focus:ring-2 focus:ring-red-700"
               >
                 Log Out
               </button>
@@ -131,12 +131,12 @@
         <div class="flex flex-col items-center font-sans gap-6">
           <a
             href="/index.html"
-          class="font-medium hover:text-detail active:text-detail hover:underline hover:decoration-detail underline-offset-4 transition-all text-primary"
+            class="font-medium hover:text-detail active:text-detail hover:underline hover:decoration-detail underline-offset-4 transition-all text-primary"
             >Home</a
           >
           <a
             href="/about/index.html"
-         class="font-medium hover:text-detail active:text-detail hover:underline hover:decoration-detail underline-offset-4 transition-all text-primary"
+            class="font-medium hover:text-detail active:text-detail hover:underline hover:decoration-detail underline-offset-4 transition-all text-primary"
             >About</a
           >
 
@@ -156,7 +156,7 @@
             >
             <button
               id="mobile-logout-button"
-              class="bg-primary text-white px-8 py-2 rounded-lg text-md"
+              class="bg-primary text-white px-8 py-2 rounded-lg transition hover:bg-red-700 hover:text-white focus:ring-2 focus:ring-red-700 focus:outline-none active:bg-red-800 disabled:opacity-50"
             >
               Log Out
             </button>
@@ -274,9 +274,10 @@
               <div class="mt-4 pt-2 border-t border-border">
                 <a
                   href="/listings/listing-detail.html"
-                  class="js-link block rounded-lg border-2 border-border bg-primary w-full py-2 text-center font-medium text-white hover:bg-detail focus:ring-2 focus:ring-detail transition-colors"
-                  >View Details</a
+                  class="js-link bg-primary text-white px-6 py-1.5 rounded-lg text-sm font-semibold text-center hover:bg-detail transition inline-block w-full"
                 >
+                  View Details
+                </a>
               </div>
             </div>
           </article>

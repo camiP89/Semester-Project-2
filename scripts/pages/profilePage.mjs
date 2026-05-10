@@ -17,7 +17,7 @@ const isDefaultImage = (url) =>
   !url || url.includes("images.unsplash.com");
 
 export async function initProfile() {
-  const listingsContainer = document.getElementById("listings-container");
+  const listingsContainer = document.getElementById("profile-listings-container");
   const bidsContainer = document.getElementById("my-bids-container");
 
   const rawUser = localStorage.getItem("userName");

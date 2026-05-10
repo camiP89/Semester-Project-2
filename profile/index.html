@@ -103,7 +103,7 @@
               >
               <button
                 id="logout-button"
-                class="bg-primary text-white px-6 py-1.5 rounded-lg text-sm font-semibold"
+                class="bg-primary text-white px-6 py-1.5 rounded-lg text-sm font-semibold transition-colors duration-200 hover:bg-red-700 hover:text-white active:bg-red-800 focus:ring-2 focus:ring-red-700"
               >
                 Log Out
               </button>
@@ -146,17 +146,18 @@
           >
             <a
               href="/listings/index.html"
-              class="font-semibold hover:text-detail active:text-detail hover:underline hover:decoration-detail underline-offset-4 transition-all text-primary"
+              class="font-medium hover:text-detail active:text-detail hover:underline hover:decoration-detail underline-offset-4 transition-all text-primary"
               >Listings</a
             >
             <a
               href="/profile/index.html"
-              class="font-medium text-detail underline decoration-detail underline-offset-4"
+              class="font-semibold text-detail underline decoration-detail underline-offset-4"
               >Profile</a
             >
+
             <button
               id="mobile-logout-button"
-              class="bg-primary text-white px-8 py-2 rounded-lg text-md"
+              class="bg-primary text-white px-8 py-2 rounded-lg transition hover:bg-red-700 hover:text-white focus:ring-2 focus:ring-red-700 focus:outline-none active:bg-red-800 disabled:opacity-50"
             >
               Log Out
             </button>
@@ -245,14 +246,14 @@
                 <div class="flex gap-2">
                   <button
                     type="submit"
-                    class="bg-primary text-white px-4 py-2 rounded"
+                    class="bg-primary text-white px-4 py-2 rounded transition hover:bg-detail hover:text-text focus:ring-2 focus:ring-detail focus:outline-detail active:bg-detail disabled:opacity-50"
                   >
                     Save Changes
                   </button>
                   <button
                     type="button"
                     id="close-edit"
-                    class="bg-border/30 px-4 py-2 font-semibold rounded"
+                    class="bg-border/30 px-4 py-2 font-semibold rounded transition hover:bg-red-700 hover:text-white focus:ring-2 focus:ring-red-700 focus:outline-none active:bg-red-800 disabled:opacity-50"
                   >
                     Cancel
                   </button>
@@ -261,13 +262,13 @@
             </div>
             <button
               id="edit-profile-btn"
-              class="bg-detail/10 text-detail px-4 py-2 rounded-lg font-bold hover:bg-detail/20"
+              class="bg-detail/30 text-detail px-4 py-2 rounded-lg font-semibold transition-all duration-200 hover:bg-detail/50 hover:shadow-sm active:bg-detail/40 focus:ring-2 focus:ring-detail/40 focus:outline-none"
             >
               Edit Profile
             </button>
             <a
               href="/listings/create.html"
-              class="bg-primary text-white px-4 py-2 rounded-lg text-center"
+              class="bg-primary text-white px-4 py-2 rounded-lg text-center transition hover:bg-detail hover:text-text hover:font-semibold focus:ring-2 focus:ring-detail focus:outline-detail active:bg-detail disabled:opacity-50"
               >Create Listing</a
             >
           </div>
@@ -336,12 +337,12 @@
             <div class="js-tag-container flex flex-wrap gap-1 mt-2"></div>
             <div class="js-owner-controls hidden gap-2 mt-2">
               <button
-                class="js-edit-btn bg-detail text-white px-3 py-1 rounded text-xs font-semibold flex-1"
+                class="js-edit-btn bg-detail/40 text-detail/90 px-3 py-1 rounded text-xs font-semibold flex-1 transition-colors duration-200 hover:bg-detail/60 hover:text-text active:bg-detail/50 focus:ring-2 focus:ring-detail/40 focus:outline-none"
               >
                 Edit
               </button>
               <button
-                class="js-delete-btn bg-red-500 text-white px-3 py-1 rounded text-xs font-semibold flex-1"
+                class="js-delete-btn bg-red-700 text-white px-3 py-1 rounded text-xs font-semibold flex-1 transition-colors duration-200 hover:bg-red-600 active:bg-red-800 focus:ring-2 focus:ring-red-700 focus:outline-none disabled:opacity-50"
               >
                 Delete
               </button>
@@ -349,16 +350,17 @@
             <div class="mt-4 pt-2 border-t border-border">
               <a
                 href="/listings/listing-detail.html"
-                class="js-link block rounded-lg border-2 border-border bg-primary w-full py-2 text-center font-medium text-white hover:bg-detail focus:ring-2 focus:ring-detail transition-colors"
-                >View Details</a
+                class="js-link bg-primary text-white px-6 py-1.5 rounded-lg text-sm font-semibold text-center hover:bg-detail transition inline-block w-full"
               >
+                View Details
+              </a>
             </div>
           </div>
         </article>
       </template>
 
       <div
-        id="listings-container"
+        id="profile-listings-container"
         class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12"
       ></div>
 
@@ -371,7 +373,6 @@
               class="js-image h-full w-full bg-cover bg-center group-hover:scale-105 transition-transform"
             ></div>
 
-
             <div
               class="js-status-wrapper absolute top-3 right-3 text-xs font-semibold px-2 py-1 rounded-lg bg-border/80 backdrop-blur-md"
             >
@@ -379,9 +380,7 @@
             </div>
           </div>
 
-
           <div class="p-4 flex flex-col gap-2">
-
             <h3 class="js-title font-semibold text-lg text-text line-clamp-1">
               Listing title
             </h3>
@@ -391,13 +390,11 @@
               <span class="js-bid-amount font-bold text-accent"></span>
             </p>
 
-
             <p class="text-xs text-text/70">
               Ends:
               <span class="js-end-date font-semibold"></span>
               <span class="js-end-time text-detail"></span>
             </p>
-
 
             <a
               class="js-link mt-3 bg-primary text-white text-center py-2 rounded-lg text-sm font-medium hover:bg-detail transition"

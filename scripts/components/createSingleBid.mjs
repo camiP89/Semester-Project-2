@@ -64,7 +64,7 @@ export function createSingleBidHtml(bid) {
     if (status === "ended") {
       statusBadge.textContent = "Ended";
       statusWrapper.classList.remove("hidden");
-      statusWrapper.classList.add("bg-red-500");
+      statusWrapper.classList.add("bg-red-700");
     } else if (status === "ending") {
       statusBadge.textContent = "Ending soon";
       statusWrapper.classList.remove("hidden");
